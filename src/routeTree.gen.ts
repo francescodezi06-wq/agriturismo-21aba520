@@ -9,8 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as RistoranteRouteImport } from './routes/ristorante'
+import { Route as CamereRouteImport } from './routes/camere'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RistoranteRoute = RistoranteRouteImport.update({
+  id: '/ristorante',
+  path: '/ristorante',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CamereRoute = CamereRouteImport.update({
+  id: '/camere',
+  path: '/camere',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +37,61 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/camere': typeof CamereRoute
+  '/ristorante': typeof RistoranteRoute
+  '/shop': typeof ShopRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/camere': typeof CamereRoute
+  '/ristorante': typeof RistoranteRoute
+  '/shop': typeof ShopRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/camere': typeof CamereRoute
+  '/ristorante': typeof RistoranteRoute
+  '/shop': typeof ShopRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/camere' | '/ristorante' | '/shop'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/camere' | '/ristorante' | '/shop'
+  id: '__root__' | '/' | '/camere' | '/ristorante' | '/shop'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CamereRoute: typeof CamereRoute
+  RistoranteRoute: typeof RistoranteRoute
+  ShopRoute: typeof ShopRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ristorante': {
+      id: '/ristorante'
+      path: '/ristorante'
+      fullPath: '/ristorante'
+      preLoaderRoute: typeof RistoranteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/camere': {
+      id: '/camere'
+      path: '/camere'
+      fullPath: '/camere'
+      preLoaderRoute: typeof CamereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CamereRoute: CamereRoute,
+  RistoranteRoute: RistoranteRoute,
+  ShopRoute: ShopRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
