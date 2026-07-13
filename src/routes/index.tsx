@@ -1,168 +1,244 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { ArrowRight, Star, Leaf, Sparkles, MapPin, Wheat, Utensils, Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ROOMS, PRODUCTS, TESTIMONIALS } from "@/lib/site-data";
+
+const HERO_IMG = "https://images.unsplash.com/photo-1568930157403-9ad464e5f075?auto=format&fit=crop&w=2400&q=85";
+const ABOUT_IMG = "https://images.unsplash.com/photo-1699394631060-a643e09d4780?auto=format&fit=crop&w=1600&q=85";
+const LANDSCAPE_IMG = "https://images.unsplash.com/photo-1652121650307-57ad2716432c?auto=format&fit=crop&w=2400&q=85";
+const COURT_IMG = "https://images.unsplash.com/photo-1723438095835-220f5a82bed4?auto=format&fit=crop&w=2000&q=85";
+const KITCHEN_IMG = "https://images.unsplash.com/photo-1579926545913-448d525562db?auto=format&fit=crop&w=1800&q=85";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
       { title: "Azienda Agricola La Corte · Muggiano, Milano" },
-      {
-        name: "description",
-        content:
-          "Antica corte lombarda del 1800 nel Parco Agricolo Sud di Milano. La storia dell'Azienda Agricola La Corte a Muggiano.",
-      },
+      { name: "description", content: "Antica corte lombarda del 1800 a Muggiano, nel Parco Agricolo Sud di Milano. La storia della famiglia Alberti, l'ospitalità in cascina e i prodotti della terra." },
     ],
   }),
 });
 
 function Index() {
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <main className="min-h-screen bg-[#faf7f1] text-stone-800">
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-stone-200">
-        <div className="mx-auto max-w-5xl px-6 py-24 md:py-32">
-          <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
-            Muggiano · Parco Agricolo Sud Milano
-          </p>
-          <h1 className="mt-6 font-serif text-5xl leading-tight text-stone-900 md:text-7xl">
-            Azienda Agricola
-            <br />
-            <span className="italic">La Corte</span>
+    <>
+      {/* HERO */}
+      <section className="relative h-screen w-full overflow-hidden">
+        <div
+          className="absolute inset-0 animate-kenburns"
+          style={{ backgroundImage: `url(${HERO_IMG})`, backgroundSize: "cover", backgroundPosition: "center", transform: `translateY(${scrollY * 0.3}px)` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-wood-dark/40 via-wood-dark/20 to-wood-dark/70" />
+        <div className="relative h-full container flex flex-col justify-end pb-24 md:pb-32 text-cream">
+          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-gold animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>Dal 1800 · Muggiano, Milano</p>
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mt-4 max-w-4xl leading-[1.05] text-balance animate-fade-in" style={{ animationDelay: "0.4s", opacity: 0 }}>
+            Azienda Agricola<br/><span className="italic font-light">La Corte</span>
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-stone-600">
-            Una corte lombarda costruita intorno al 1800, custode di una storia
-            contadina che affonda le radici nell'epoca romana e nel Medioevo
-            milanese.
+          <p className="mt-6 text-lg md:text-xl max-w-xl text-cream/85 leading-relaxed animate-fade-in" style={{ animationDelay: "0.7s", opacity: 0 }}>
+            Un'antica corte lombarda del 1800 nel Parco Agricolo Sud.<br className="hidden md:block"/> Storia contadina, ospitalità di famiglia e prodotti della nostra terra.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4 text-sm">
-            <a
-              href="#chi-siamo"
-              className="rounded-full bg-stone-900 px-6 py-3 text-stone-50 transition hover:bg-stone-700"
-            >
-              La nostra storia
-            </a>
-            <a
-              href="#contatti"
-              className="rounded-full border border-stone-300 px-6 py-3 text-stone-800 transition hover:border-stone-800"
-            >
-              Contattaci
-            </a>
+          <div className="flex flex-wrap gap-3 mt-10 animate-fade-in" style={{ animationDelay: "1s", opacity: 0 }}>
+            <Link to="/camere"><Button size="lg" className="bg-olive hover:bg-olive-dark text-cream uppercase tracking-[0.2em] text-xs px-8 h-12">Ospitalità in cascina</Button></Link>
+            <Link to="/ristorante"><Button size="lg" variant="outline" className="bg-transparent border-cream text-cream hover:bg-cream hover:text-wood-dark uppercase tracking-[0.2em] text-xs px-8 h-12">La cucina</Button></Link>
+            <Link to="/shop"><Button size="lg" variant="ghost" className="text-cream hover:bg-cream/10 hover:text-cream uppercase tracking-[0.2em] text-xs px-8 h-12">La bottega</Button></Link>
+          </div>
+        </div>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/70 text-xs uppercase tracking-[0.3em] animate-bounce">scorri</div>
+      </section>
+
+      {/* CHI SIAMO */}
+      <section id="chi-siamo" className="py-24 md:py-36 bg-cream">
+        <div className="container grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="ornament-divider text-xs uppercase tracking-[0.3em] mb-8"><span>Chi siamo</span></p>
+            <h2 className="font-serif text-4xl md:text-5xl text-wood-dark leading-tight">Una storia di <em className="text-olive">famiglia e di terra</em></h2>
+            <p className="mt-6 text-muted-foreground leading-relaxed text-lg">
+              L'Azienda Agricola La Corte è stata costruita intorno al 1800 a Muggiano, quartiere all'estremità occidentale di Milano, nel cuore del Parco Agricolo Sud. Oggi la conduce Miriam Alberti, che porta avanti l'attività dei nonni con la collaborazione di tutta la famiglia.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Il nome "Muggiano" è di origine romana e indicava un antico insediamento di coloni chiamato <em>Modianus</em>. Comune autonomo fino al 1869, il borgo è stato poi inglobato dall'allora comune di Baggio.
+            </p>
+            <div className="grid grid-cols-3 gap-6 mt-10">
+              {[{n:"1800", l:"Fondazione della corte"},{n:"III", l:"Generazioni di famiglia"},{n:"Parco Sud", l:"Milano"}].map((s) => (
+                <div key={s.l}>
+                  <div className="font-serif text-3xl text-olive">{s.n}</div>
+                  <div className="text-xs uppercase tracking-wider text-muted-foreground mt-1">{s.l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-sm luxury-shadow">
+            <img src={ABOUT_IMG} alt="La corte lombarda dell'Azienda Agricola La Corte a Muggiano" className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]" />
+            <div className="absolute -bottom-px -right-px bg-cream py-4 px-6 font-serif italic text-wood-dark border-l border-t border-sand">&laquo; La corte di famiglia. Casa vostra. &raquo;</div>
           </div>
         </div>
       </section>
 
-      {/* Chi Siamo */}
-      <section id="chi-siamo" className="mx-auto max-w-3xl px-6 py-24 md:py-32">
-        <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
-          Chi siamo
-        </p>
-        <h2 className="mt-4 font-serif text-4xl text-stone-900 md:text-5xl">
-          Una storia di famiglia, terra e tempo
-        </h2>
-
-        <div className="mt-12 space-y-6 text-lg leading-relaxed text-stone-700">
-          <p>
-            L'Azienda Agricola La Corte è stata costruita intorno al 1800 circa.
-            La nostra azienda si trova a Muggiano, un quartiere situato
-            all'estremità occidentale di Milano all'interno del Parco Agricolo
-            Sud.
-          </p>
-          <p>
-            Il nome <em>"Muggiano"</em> è di origine romana: indicava un
-            insediamento di coloni chiamato <em>Modianus</em>, dal nome romano
-            dell'assegnatario di quel terreno, <em>Modius</em>. Muggiano è stato
-            comune autonomo con le frazioni Guascona, Guasconcina e Assiano fino
-            al 1869, per poi essere inglobato dall'allora comune di Baggio.
-          </p>
-          <p>
-            Oggi il conduttore di questa azienda è la Sig.ina{" "}
-            <strong>Alberti Miriam</strong>, che continua l'attività che i
-            nonni, nel loro piccolo, avevano cominciato, con la collaborazione
-            di tutti i componenti familiari, grandi e piccini.
-          </p>
-
-          <h3 className="pt-6 font-serif text-2xl text-stone-900">
-            Architettura e paesaggio
-          </h3>
-          <p>
-            L'utilizzo del cotto e le particolari strutture architettoniche a
-            corte chiusa sono caratteristiche tipiche delle strutture lombarde e
-            denotano un particolare carattere agricolo anche per l'Azienda
-            Agricola La Corte, dove trovano un impiego sostanziale.
-          </p>
-          <p>
-            Una situazione che rispecchia al meglio la presente destinazione di
-            questo luogo. L'attuale corte deriva, infatti, da un complesso
-            agricolo più ampio che faceva parte della proprietà delle sorelle
-            Callegaris di Milano nel secolo scorso.
-          </p>
-          <p>
-            Siamo nel pieno centro storico di Muggiano, proprio di fronte alla
-            blasonata <em>"Corte Grande"</em>, caratterizzata dai lobbioni su
-            tre piani, aspetto non proprio comune in questa tipologia di
-            strutture.
-          </p>
-
-          <h3 className="pt-6 font-serif text-2xl text-stone-900">
-            Origini antiche
-          </h3>
-          <p>
-            Questo angolo del borgo nasconde delle origini molto più profonde:
-            nei documenti antichi è possibile scoprire che ben prima della
-            funzione agricola in questo luogo esisteva un'antica cappella
-            religiosa. Era la chiesa dedicata ai Santi Cornelio e Cipriano, che
-            poggiava le sue basi in particolare dove oggi si trova la casa
-            patronale.
-          </p>
-          <p>
-            È un'antica testimonianza della storia medievale locale, oggi
-            purtroppo scomparsa, che cela un fascino misterioso al momento
-            senza una spiegazione plausibile. Sono ignote le motivazioni per
-            cui in una realtà piccola e modesta come Muggiano, in poche decine
-            di metri, si trovassero due piccole cappelle in una comunità che
-            contava poche decine di anime in tempi antichi.
-          </p>
-          <p>
-            L'altra chiesuola era, infatti, nella piazza principale del borgo.
-            Un'anomalia notata anche dalle autorità religiose: durante una
-            visita pastorale alla fine del '500 il Cardinale Carlo Borromeo
-            ordinò che la cappella dedicata a San Cornelio e Cipriano fosse
-            demolita, recuperando i materiali per un'altra cappella simile a
-            Terzago, località nei pressi dell'attuale Gaggiano.
-          </p>
-          <p>
-            Ad oggi non sono rimaste tracce visibili di questo antico passato,
-            ma oralmente si tramanda che, durante i lavori per il condotto
-            fognario stradale all'inizio degli anni '90, furono notate delle
-            tracce di ossa nel materiale di scavo. Verità unita a fantasia, chi
-            lo sa… ma certamente una situazione plausibile con l'usanza
-            medievale di posizionare dinanzi e attorno alle chiese i cimiteri.
-            Senza ombra di dubbio, questa è una delle parti più antiche del
-            borgo di Muggiano.
-          </p>
+      {/* ARCHITETTURA */}
+      <section className="py-24 md:py-32 bg-sand/30">
+        <div className="container grid md:grid-cols-3 gap-10">
+          {[
+            { icon: Home, title: "Corte chiusa lombarda", text: "Cotto a vista e strutture a corte chiusa: le caratteristiche tipiche dell'architettura rurale lombarda, qui in pieno centro storico di Muggiano." },
+            { icon: Wheat, title: "Radici antiche", text: "Dove oggi sorge la casa patronale, nel Medioevo esisteva la cappella dei Santi Cornelio e Cipriano: una testimonianza della storia religiosa del borgo." },
+            { icon: Leaf, title: "Parco Agricolo Sud", text: "Siamo nel cuore del più grande parco agricolo d'Europa, a pochi minuti da Milano ma lontani dal suo ritmo." },
+          ].map((f) => (
+            <div key={f.title} className="bg-cream p-8 border border-sand rounded-sm">
+              <f.icon className="w-6 h-6 text-olive" />
+              <h3 className="font-serif text-2xl text-wood-dark mt-4">{f.title}</h3>
+              <p className="mt-3 text-muted-foreground leading-relaxed text-sm">{f.text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Contatti */}
-      <section
-        id="contatti"
-        className="border-t border-stone-200 bg-stone-900 text-stone-100"
-      >
-        <div className="mx-auto max-w-5xl px-6 py-20">
-          <p className="text-xs uppercase tracking-[0.3em] text-stone-400">
-            Vieni a trovarci
-          </p>
-          <h2 className="mt-4 font-serif text-4xl md:text-5xl">
-            Muggiano, Milano
-          </h2>
-          <p className="mt-6 max-w-xl text-stone-300">
-            Nel cuore del Parco Agricolo Sud, all'estremità occidentale di
-            Milano.
-          </p>
-          <p className="mt-10 text-sm text-stone-500">
-            © {new Date().getFullYear()} Azienda Agricola La Corte
-          </p>
+      {/* CAMERE */}
+      <section className="py-24 md:py-32 bg-cream">
+        <div className="container">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">L'ospitalità</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-wood-dark mt-4">Quattro stanze, una corte</h2>
+            <p className="text-muted-foreground mt-4">Camere ricavate negli edifici storici della corte, ognuna con il suo carattere e la sua vista.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {ROOMS.map((r, i) => (
+              <a key={r.id} href={`/camere#${r.id}`} className="group block">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+                  <img src={r.image} alt={`${r.name} — Azienda Agricola La Corte`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-wood-dark/70 via-transparent to-transparent" />
+                  <div className="absolute top-4 right-4 bg-cream/90 px-3 py-1 text-xs uppercase tracking-wider text-wood-dark">N. 0{i+1}</div>
+                  <div className="absolute bottom-6 left-6 right-6 text-cream">
+                    <p className="text-xs uppercase tracking-[0.25em] text-gold">{r.tagline}</p>
+                    <h3 className="font-serif text-3xl mt-1">{r.name}</h3>
+                    <div className="flex items-center justify-between mt-3">
+                      <span className="text-sm">da € {r.pricePerNight}/notte</span>
+                      <span className="flex items-center gap-1 text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition">Scopri <ArrowRight className="w-3 h-3" /></span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div className="text-center mt-12"><Link to="/camere"><Button variant="outline" className="border-olive text-olive hover:bg-olive hover:text-cream tracking-wider">Tutte le camere &amp; prenotazione</Button></Link></div>
         </div>
       </section>
-    </main>
+
+      {/* QUOTE PARALLAX */}
+      <section className="relative h-[60vh] overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0" style={{ backgroundImage: `url(${LANDSCAPE_IMG})`, backgroundSize: "cover", backgroundPosition: "center", transform: `translateY(${(scrollY - 1800) * 0.15}px)` }} />
+        <div className="absolute inset-0 bg-wood-dark/50" />
+        <div className="relative text-center text-cream px-6 max-w-3xl">
+          <Sparkles className="w-6 h-6 mx-auto text-gold" />
+          <p className="font-serif text-3xl md:text-5xl italic mt-6 leading-snug">&laquo; Continuiamo l'attività che i nonni, nel loro piccolo, avevano cominciato. &raquo;</p>
+          <p className="mt-6 uppercase tracking-[0.3em] text-xs text-gold">— Miriam Alberti, conduttrice</p>
+        </div>
+      </section>
+
+      {/* CUCINA */}
+      <section className="py-24 md:py-32 bg-cream">
+        <div className="container grid md:grid-cols-2 gap-16 items-center">
+          <div className="order-2 md:order-1 relative aspect-[4/5] overflow-hidden rounded-sm luxury-shadow">
+            <img src={KITCHEN_IMG} alt="La cucina di famiglia dell'Azienda Agricola La Corte" className="w-full h-full object-cover" />
+          </div>
+          <div className="order-1 md:order-2">
+            <p className="ornament-divider text-xs uppercase tracking-[0.3em] mb-8"><span>La cucina</span></p>
+            <h2 className="font-serif text-4xl md:text-5xl text-wood-dark leading-tight">La tradizione <em className="text-olive">lombarda</em>, a tavola con noi</h2>
+            <p className="mt-6 text-muted-foreground leading-relaxed text-lg">Piatti di casa preparati con i prodotti della nostra corte e del territorio: risotto giallo, cassoeula, verdure dell'orto e ricette tramandate in famiglia.</p>
+            <ul className="mt-6 space-y-2 text-sm">
+              <li className="flex gap-2"><Leaf className="w-4 h-4 text-olive mt-0.5" /> Orto di famiglia, uova e prodotti a chilometro zero</li>
+              <li className="flex gap-2"><Utensils className="w-4 h-4 text-olive mt-0.5" /> Menu di stagione della tradizione milanese</li>
+              <li className="flex gap-2"><Wheat className="w-4 h-4 text-olive mt-0.5" /> Riso e farine dai campi del Parco Sud</li>
+            </ul>
+            <Link to="/ristorante" className="inline-block mt-8"><Button className="bg-wood-dark hover:bg-wood text-cream tracking-wider">Menu &amp; prenotazione</Button></Link>
+          </div>
+        </div>
+      </section>
+
+      {/* BOTTEGA */}
+      <section className="py-24 md:py-32 bg-wood-dark text-cream">
+        <div className="container">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-gold">La bottega</p>
+              <h2 className="font-serif text-4xl md:text-5xl mt-4">I sapori della corte, a casa tua</h2>
+            </div>
+            <Link to="/shop" className="text-gold uppercase tracking-[0.25em] text-xs hover:text-cream inline-flex items-center gap-2">Visita la bottega <ArrowRight className="w-3 h-3" /></Link>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {PRODUCTS.slice(0, 4).map((p) => (
+              <Link key={p.id} to="/shop" className="group">
+                <div className="aspect-[3/4] overflow-hidden rounded-sm bg-cream/5">
+                  <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+                </div>
+                <p className="mt-3 text-xs uppercase tracking-wider text-gold">{p.category}</p>
+                <p className="font-serif text-lg leading-tight">{p.name}</p>
+                <p className="text-sm text-cream/70">€ {p.price.toFixed(2)}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="py-24 md:py-32 bg-cream">
+        <div className="container">
+          <div className="text-center mb-14">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Ospiti a Muggiano</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-wood-dark mt-4">Quello che dicono di noi</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {TESTIMONIALS.map((t, i) => (
+              <div key={i} className="bg-sand/30 p-8 rounded-sm border border-sand/60">
+                <div className="flex gap-1 text-gold">{Array.from({length: t.rating}).map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}</div>
+                <p className="font-serif text-xl text-wood-dark mt-4 italic leading-relaxed">&laquo; {t.text} &raquo;</p>
+                <div className="mt-6 pt-4 border-t border-sand">
+                  <p className="font-medium text-wood-dark">{t.name}</p>
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground">{t.location}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERIA */}
+      <section className="py-20 bg-sand/40">
+        <div className="container">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">@aziendaagricola.lacorte</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-wood-dark mt-3">La vita in cascina</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-3">
+            {[ABOUT_IMG, KITCHEN_IMG, COURT_IMG, LANDSCAPE_IMG, ROOMS[0].image, PRODUCTS[0].image].map((src, i) => (
+              <a key={i} href="#" className="aspect-square overflow-hidden group">
+                <img src={src} className="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Momenti di vita nella corte" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTATTI CTA */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0" style={{ backgroundImage: `url(${COURT_IMG})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+        <div className="absolute inset-0 bg-wood-dark/70" />
+        <div className="relative container text-center text-cream max-w-3xl">
+          <MapPin className="w-6 h-6 mx-auto text-gold" />
+          <h2 className="font-serif text-4xl md:text-6xl mt-6">Vieni a trovarci</h2>
+          <p className="mt-6 text-cream/80 text-lg">Muggiano, all'estremità occidentale di Milano — nel Parco Agricolo Sud.</p>
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            <Link to="/camere"><Button size="lg" className="bg-gold hover:bg-gold-dark text-wood-dark tracking-wider">Prenota il tuo soggiorno</Button></Link>
+            <a href="mailto:info@aziendaagricolalacorte.it"><Button size="lg" variant="outline" className="bg-transparent border-cream text-cream hover:bg-cream hover:text-wood-dark tracking-wider">Scrivici</Button></a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
