@@ -77,14 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Azienda Agricola La Corte · Muggiano, Milano" },
+      { name: "description", content: "Antica corte lombarda dell'800 nel Parco Agricolo Sud Milano. Storia, tradizione e ospitalità agricola a Muggiano." },
+      { name: "author", content: "Azienda Agricola La Corte" },
+      { property: "og:title", content: "Azienda Agricola La Corte · Muggiano" },
+      { property: "og:description", content: "Antica corte lombarda dell'800 nel Parco Agricolo Sud Milano." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
