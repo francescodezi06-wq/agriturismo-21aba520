@@ -4,6 +4,9 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import logoUrl from "@/assets/logo-lacorte.png";
+
+
 
 const NAV = [
   { href: "/", label: "Home" },
@@ -32,14 +35,13 @@ export default function SiteHeader() {
       )}
     >
       <div className="container flex items-center justify-between h-20">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className={cn("w-10 h-10 rounded-full border flex items-center justify-center", scrolled ? "border-wood-dark text-wood-dark" : "border-cream text-cream")}>
-            <span className="font-serif text-xl">C</span>
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className={cn("font-serif text-xl tracking-wide", scrolled ? "text-wood-dark" : "text-cream")}>La Corte</span>
-            <span className={cn("text-[10px] uppercase tracking-[0.25em]", scrolled ? "text-olive" : "text-cream/80")}>Azienda Agricola · Muggiano</span>
-          </div>
+        <Link to="/" className="flex items-center gap-3 group" aria-label="Agriturismo La Corte di Muggiano">
+          <img
+            src={logoUrl}
+            alt="Logo Agriturismo La Corte di Muggiano"
+            className="h-14 md:h-16 w-auto object-contain"
+          />
+          <span className="sr-only">Agriturismo La Corte di Muggiano</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
