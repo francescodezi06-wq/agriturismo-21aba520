@@ -10,8 +10,8 @@ export const Route = createFileRoute("/shop")({
   component: ShopPage,
   head: () => ({
     meta: [
-      { title: "La Bottega · Azienda Agricola La Corte, Muggiano" },
-      { name: "description", content: "Miele, conserve, riso Carnaroli, farine e ortaggi dell'Azienda Agricola La Corte. Prodotti della nostra corte lombarda a Muggiano, Milano." },
+      { title: "La Bottega · Agriturismo La Corte di Muggiano" },
+      { name: "description", content: "Le cassette di prodotti dell'Agriturismo La Corte di Muggiano: carne bovina, prodotti dell'azienda agricola e cassette di stagione, con ritiro in agriturismo o spedizione." },
     ],
   }),
 });
