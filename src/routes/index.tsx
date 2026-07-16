@@ -38,12 +38,12 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-wood-dark/40 via-wood-dark/20 to-wood-dark/70" />
         <div className="relative h-full container flex flex-col justify-end pb-24 md:pb-32 text-cream">
-          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-gold animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>Dal 1800 · Muggiano, Milano</p>
+          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-gold animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>Quartiere Baggio · Milano</p>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mt-4 max-w-4xl leading-[1.05] text-balance animate-fade-in" style={{ animationDelay: "0.4s", opacity: 0 }}>
-            Azienda Agricola<br/><span className="italic font-light">La Corte</span>
+            Agriturismo<br/><span className="italic font-light">La Corte di Muggiano</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl max-w-xl text-cream/85 leading-relaxed animate-fade-in" style={{ animationDelay: "0.7s", opacity: 0 }}>
-            Un'antica corte lombarda del 1800 nel Parco Agricolo Sud.<br className="hidden md:block"/> Storia contadina, ospitalità di famiglia e prodotti della nostra terra.
+            Un soggiorno immerso nella tranquillità della campagna, a pochi minuti da San Siro, CityLife e Fiera Milano.
           </p>
           <div className="flex flex-wrap gap-3 mt-10 animate-fade-in" style={{ animationDelay: "1s", opacity: 0 }}>
             <Link to="/camere"><Button size="lg" className="bg-olive hover:bg-olive-dark text-cream uppercase tracking-[0.2em] text-xs px-8 h-12">Ospitalità in cascina</Button></Link>
@@ -59,15 +59,18 @@ function Index() {
         <div className="container grid md:grid-cols-2 gap-16 items-center">
           <div>
             <p className="ornament-divider text-xs uppercase tracking-[0.3em] mb-8"><span>Chi siamo</span></p>
-            <h2 className="font-serif text-4xl md:text-5xl text-wood-dark leading-tight">Una storia di <em className="text-olive">famiglia e di terra</em></h2>
+            <h2 className="font-serif text-4xl md:text-5xl text-wood-dark leading-tight">Un agriturismo <em className="text-olive">a due passi da Milano</em></h2>
             <p className="mt-6 text-muted-foreground leading-relaxed text-lg">
-              L'Azienda Agricola La Corte è stata costruita intorno al 1800 a Muggiano, quartiere all'estremità occidentale di Milano, nel cuore del Parco Agricolo Sud. Oggi la conduce Miriam Alberti, che porta avanti l'attività dei nonni con la collaborazione di tutta la famiglia.
+              Agriturismo La Corte di Muggiano offre un soggiorno immerso nella tranquillità del quartiere Baggio di Milano, tra campi coltivati e ospitalità familiare. Una base ideale per chi visita la città e desidera un ritmo più lento al termine della giornata.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Il nome "Muggiano" è di origine romana e indicava un antico insediamento di coloni chiamato <em>Modianus</em>. Comune autonomo fino al 1869, il borgo è stato poi inglobato dall'allora comune di Baggio.
+              Ci trovi a circa 8 km dallo Stadio San Siro, 8,7 km da CityLife, 8,9 km da Fiera Milano City e 9,1 km dal MUDEC. L'aeroporto più vicino è Milano Linate, a circa 19 km.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              La struttura mette a disposizione Wi-Fi gratuito in tutta la proprietà, parcheggio privato, giardino, colazione a buffet o all'italiana, camere climatizzate con TV a schermo piatto, frigorifero e bagno privato con bidet.
             </p>
             <div className="grid grid-cols-3 gap-6 mt-10">
-              {[{n:"1800", l:"Fondazione della corte"},{n:"III", l:"Generazioni di famiglia"},{n:"Parco Sud", l:"Milano"}].map((s) => (
+              {[{n:"8 km", l:"da San Siro"},{n:"8,9 km", l:"da Fiera Milano"},{n:"19 km", l:"da Linate"}].map((s) => (
                 <div key={s.l}>
                   <div className="font-serif text-3xl text-olive">{s.n}</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground mt-1">{s.l}</div>
@@ -86,9 +89,9 @@ function Index() {
       <section className="py-24 md:py-32 bg-sand/30">
         <div className="container grid md:grid-cols-3 gap-10">
           {[
-            { icon: Home, title: "Corte chiusa lombarda", text: "Cotto a vista e strutture a corte chiusa: le caratteristiche tipiche dell'architettura rurale lombarda, qui in pieno centro storico di Muggiano." },
-            { icon: Wheat, title: "Radici antiche", text: "Dove oggi sorge la casa patronale, nel Medioevo esisteva la cappella dei Santi Cornelio e Cipriano: una testimonianza della storia religiosa del borgo." },
-            { icon: Leaf, title: "Parco Agricolo Sud", text: "Siamo nel cuore del più grande parco agricolo d'Europa, a pochi minuti da Milano ma lontani dal suo ritmo." },
+            { icon: Home, title: "Camere confortevoli", text: "Camere climatizzate con ingresso indipendente, bagno privato, TV a schermo piatto e balcone: tutti i comfort per un soggiorno rilassante." },
+            { icon: Wheat, title: "Colazione genuina", text: "Colazione a buffet o all'italiana con prodotti della nostra azienda agricola: miele, marmellate, uova fresche e pane appena sfornato." },
+            { icon: Leaf, title: "Giardino e parcheggio", text: "Wi-Fi gratuito in tutta la struttura, ampio giardino e parcheggio privato per chi arriva in auto. Comodo per visitare Milano." },
           ].map((f) => (
             <div key={f.title} className="bg-cream p-8 border border-sand rounded-sm">
               <f.icon className="w-6 h-6 text-olive" />
