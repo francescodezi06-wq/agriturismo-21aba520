@@ -37,13 +37,29 @@ function CamerePage() {
   return (
     <>
       <section className="relative h-[60vh] overflow-hidden pt-20">
-        <img src="https://images.unsplash.com/photo-1543418219-44e30b057fea?auto=format&fit=crop&w=2400&q=85" className="w-full h-full object-cover" alt="Camere della cascina La Corte a Muggiano" />
+        <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?auto=format&fit=crop&w=2400&q=85" className="w-full h-full object-cover" alt="Camere dell'Agriturismo La Corte di Muggiano" />
         <div className="absolute inset-0 bg-wood-dark/50" />
         <div className="absolute inset-0 flex items-end pb-16">
           <div className="container text-cream">
             <p className="text-xs uppercase tracking-[0.3em] text-gold">L'ospitalità</p>
-            <h1 className="font-serif text-5xl md:text-7xl mt-4">Quattro <em className="font-light">stanze</em> nella corte</h1>
+            <h1 className="font-serif text-5xl md:text-7xl mt-4">Le nostre <em className="font-light">camere</em></h1>
           </div>
+        </div>
+      </section>
+
+      {/* BOOKING CTA */}
+      <section className="bg-olive text-cream">
+        <div className="container py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-gold">Prenotazione online</p>
+            <h2 className="font-serif text-3xl md:text-4xl mt-3">Prenota il tuo soggiorno su Booking.com</h2>
+            <p className="mt-3 text-cream/80 max-w-xl">Verifica disponibilità e tariffe in tempo reale direttamente sull'annuncio ufficiale dell'Agriturismo La Corte di Muggiano.</p>
+          </div>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="shrink-0">
+            <Button size="lg" className="bg-gold hover:bg-gold-dark text-wood-dark tracking-wider">
+              Vai all'annuncio su Booking.com <ExternalLink className="w-4 h-4 ml-2" />
+            </Button>
+          </a>
         </div>
       </section>
 
