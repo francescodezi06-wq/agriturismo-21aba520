@@ -83,6 +83,10 @@ function CamerePage() {
                 <ul className="flex flex-wrap gap-2 mt-6">
                   {r.amenities.map((a) => <li key={a} className="text-xs px-3 py-1 border border-sand rounded-full text-wood-dark/80">{a}</li>)}
                 </ul>
+                <p className="text-xs uppercase tracking-[0.25em] text-accent mt-6 mb-2">Bagno privato</p>
+                <ul className="flex flex-wrap gap-2">
+                  {r.bathroom.map((a) => <li key={a} className="text-xs px-3 py-1 border border-sand rounded-full text-wood-dark/80 bg-sand/20">{a}</li>)}
+                </ul>
                 <div className="flex items-end justify-between mt-8 pt-6 border-t border-sand">
                   <div>
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">A partire da</p>
