@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ROOMS } from "@/lib/site-data";
-import { BedDouble, Users, Sparkles, ArrowRight } from "lucide-react";
+import { ROOMS, BOOKING_URL } from "@/lib/site-data";
+import { BedDouble, Users, Sparkles, ArrowRight, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 
 type Room = (typeof ROOMS)[number];
@@ -12,8 +12,8 @@ export const Route = createFileRoute("/camere")({
   component: CamerePage,
   head: () => ({
     meta: [
-      { title: "Ospitalità in cascina · Azienda Agricola La Corte" },
-      { name: "description", content: "Quattro camere ricavate negli edifici storici di un'antica corte lombarda del 1800 a Muggiano, Milano. Prenota il tuo soggiorno nel Parco Agricolo Sud." },
+      { title: "Camere · Agriturismo La Corte di Muggiano" },
+      { name: "description", content: "Camere climatizzate all'Agriturismo La Corte di Muggiano, quartiere Baggio di Milano. Matrimoniale con balcone, tripla e quadrupla con bagno privato, Wi-Fi e parcheggio." },
     ],
   }),
 });
@@ -37,13 +37,29 @@ function CamerePage() {
   return (
     <>
       <section className="relative h-[60vh] overflow-hidden pt-20">
-        <img src="https://images.unsplash.com/photo-1543418219-44e30b057fea?auto=format&fit=crop&w=2400&q=85" className="w-full h-full object-cover" alt="Camere della cascina La Corte a Muggiano" />
+        <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?auto=format&fit=crop&w=2400&q=85" className="w-full h-full object-cover" alt="Camere dell'Agriturismo La Corte di Muggiano" />
         <div className="absolute inset-0 bg-wood-dark/50" />
         <div className="absolute inset-0 flex items-end pb-16">
           <div className="container text-cream">
             <p className="text-xs uppercase tracking-[0.3em] text-gold">L'ospitalità</p>
-            <h1 className="font-serif text-5xl md:text-7xl mt-4">Quattro <em className="font-light">stanze</em> nella corte</h1>
+            <h1 className="font-serif text-5xl md:text-7xl mt-4">Le nostre <em className="font-light">camere</em></h1>
           </div>
+        </div>
+      </section>
+
+      {/* BOOKING CTA */}
+      <section className="bg-olive text-cream">
+        <div className="container py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-gold">Prenotazione online</p>
+            <h2 className="font-serif text-3xl md:text-4xl mt-3">Prenota il tuo soggiorno su Booking.com</h2>
+            <p className="mt-3 text-cream/80 max-w-xl">Verifica disponibilità e tariffe in tempo reale direttamente sull'annuncio ufficiale dell'Agriturismo La Corte di Muggiano.</p>
+          </div>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="shrink-0">
+            <Button size="lg" className="bg-gold hover:bg-gold-dark text-wood-dark tracking-wider">
+              Vai all'annuncio su Booking.com <ExternalLink className="w-4 h-4 ml-2" />
+            </Button>
+          </a>
         </div>
       </section>
 
@@ -66,6 +82,10 @@ function CamerePage() {
                 </div>
                 <ul className="flex flex-wrap gap-2 mt-6">
                   {r.amenities.map((a) => <li key={a} className="text-xs px-3 py-1 border border-sand rounded-full text-wood-dark/80">{a}</li>)}
+                </ul>
+                <p className="text-xs uppercase tracking-[0.25em] text-accent mt-6 mb-2">Bagno privato</p>
+                <ul className="flex flex-wrap gap-2">
+                  {r.bathroom.map((a) => <li key={a} className="text-xs px-3 py-1 border border-sand rounded-full text-wood-dark/80 bg-sand/20">{a}</li>)}
                 </ul>
                 <div className="flex items-end justify-between mt-8 pt-6 border-t border-sand">
                   <div>

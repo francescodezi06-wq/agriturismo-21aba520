@@ -10,8 +10,8 @@ export const Route = createFileRoute("/shop")({
   component: ShopPage,
   head: () => ({
     meta: [
-      { title: "La Bottega · Azienda Agricola La Corte, Muggiano" },
-      { name: "description", content: "Miele, conserve, riso Carnaroli, farine e ortaggi dell'Azienda Agricola La Corte. Prodotti della nostra corte lombarda a Muggiano, Milano." },
+      { title: "La Bottega · Agriturismo La Corte di Muggiano" },
+      { name: "description", content: "Le cassette di prodotti dell'Agriturismo La Corte di Muggiano: carne bovina, prodotti dell'azienda agricola e cassette di stagione, con ritiro in agriturismo o spedizione." },
     ],
   }),
 });
@@ -27,21 +27,21 @@ function ShopPage() {
   return (
     <>
       <section className="relative h-[55vh] overflow-hidden pt-20">
-        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=2400&q=85" className="w-full h-full object-cover" alt="Prodotti della bottega della corte" />
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2400&q=85" className="w-full h-full object-cover" alt="Le cassette di prodotti dell'agriturismo" />
         <div className="absolute inset-0 bg-wood-dark/55" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-cream">
           <p className="text-xs uppercase tracking-[0.4em] text-gold">La bottega</p>
-          <h1 className="font-serif text-5xl md:text-7xl mt-4 max-w-3xl">Sapori della <em className="font-light">corte</em></h1>
-          <p className="mt-4 text-cream/80">Prodotti della nostra terra · Ritiro in cascina o spedizione in Italia</p>
+          <h1 className="font-serif text-5xl md:text-7xl mt-4 max-w-3xl">Le nostre <em className="font-light">cassette</em></h1>
+          <p className="mt-4 text-cream/80">Carne bovina e prodotti dell'azienda · Ritiro in agriturismo o spedizione</p>
         </div>
       </section>
 
       <section className="py-6 bg-sand/30 border-y border-sand">
         <div className="container grid grid-cols-2 md:grid-cols-4 gap-4 text-xs uppercase tracking-wider text-wood-dark">
-          <div className="flex items-center gap-2"><Leaf className="w-4 h-4 text-olive" /> Produzione della corte</div>
+          <div className="flex items-center gap-2"><Leaf className="w-4 h-4 text-olive" /> Produzione dell'azienda</div>
           <div className="flex items-center gap-2"><Truck className="w-4 h-4 text-olive" /> Spedizione in Italia</div>
           <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-olive" /> Filiera controllata</div>
-          <div className="flex items-center gap-2"><ShoppingBag className="w-4 h-4 text-olive" /> Ritiro in cascina</div>
+          <div className="flex items-center gap-2"><ShoppingBag className="w-4 h-4 text-olive" /> Ritiro in agriturismo</div>
         </div>
       </section>
 
@@ -65,7 +65,7 @@ function ShopPage() {
               <div key={p.id} className="group bg-white border border-sand/60 rounded-sm overflow-hidden flex flex-col">
                 <div className="aspect-square overflow-hidden relative bg-sand/20">
                   <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
-                  <Badge className="absolute top-3 left-3 bg-terracotta text-cream">Prodotto della corte</Badge>
+                  <Badge className="absolute top-3 left-3 bg-terracotta text-cream">Prodotto dell'azienda</Badge>
                 </div>
                 <div className="p-5 flex flex-col flex-1">
                   <p className="text-[10px] uppercase tracking-[0.25em] text-accent">{p.category}</p>
@@ -73,7 +73,7 @@ function ShopPage() {
                   <p className="text-xs text-muted-foreground mt-2 line-clamp-2 flex-1">{p.description}</p>
                   <div className="flex items-center justify-between mt-4">
                     <span className="font-serif text-2xl text-olive">€ {p.price.toFixed(2)}</span>
-                    <Button size="sm" onClick={() => toast.success(`${p.name}: contattaci per l'ordine`)} className="bg-wood-dark hover:bg-wood text-cream"><ShoppingBag className="w-4 h-4 mr-1" /> Richiedi</Button>
+                    <Button size="sm" onClick={() => toast.success(`${p.name} aggiunto al carrello`)} className="bg-wood-dark hover:bg-wood text-cream"><ShoppingBag className="w-4 h-4 mr-1" /> Aggiungi al carrello</Button>
                   </div>
                 </div>
               </div>
