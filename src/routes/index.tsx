@@ -107,8 +107,8 @@ function Index() {
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-xs uppercase tracking-[0.3em] text-accent">L'ospitalità</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-wood-dark mt-4">Quattro stanze, una corte</h2>
-            <p className="text-muted-foreground mt-4">Camere ricavate negli edifici storici della corte, ognuna con il suo carattere e la sua vista.</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-wood-dark mt-4">Le nostre camere</h2>
+            <p className="text-muted-foreground mt-4">Camere climatizzate con bagno privato, ingresso indipendente e vista su una tranquilla strada. Wi-Fi, colazione e parcheggio inclusi.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {ROOMS.map((r, i) => (
@@ -139,8 +139,8 @@ function Index() {
         <div className="absolute inset-0 bg-wood-dark/50" />
         <div className="relative text-center text-cream px-6 max-w-3xl">
           <Sparkles className="w-6 h-6 mx-auto text-gold" />
-          <p className="font-serif text-3xl md:text-5xl italic mt-6 leading-snug">&laquo; Continuiamo l'attività che i nonni, nel loro piccolo, avevano cominciato. &raquo;</p>
-          <p className="mt-6 uppercase tracking-[0.3em] text-xs text-gold">— Miriam Alberti, conduttrice</p>
+          <p className="font-serif text-3xl md:text-5xl italic mt-6 leading-snug">&laquo; Un angolo di campagna nel cuore di Milano. &raquo;</p>
+          <p className="mt-6 uppercase tracking-[0.3em] text-xs text-gold">— Agriturismo La Corte di Muggiano</p>
         </div>
       </section>
 
