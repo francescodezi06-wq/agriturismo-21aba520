@@ -4,7 +4,7 @@ import { ArrowRight, Star, Leaf, Sparkles, MapPin, Wheat, Utensils, Home } from 
 import { Button } from "@/components/ui/button";
 import { ROOMS, PRODUCTS, TESTIMONIALS } from "@/lib/site-data";
 
-const HERO_IMG = "https://images.unsplash.com/photo-1568930157403-9ad464e5f075?auto=format&fit=crop&w=2400&q=85";
+const HERO_IMG = "https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=2400&q=85";
 const ABOUT_IMG = "https://images.unsplash.com/photo-1699394631060-a643e09d4780?auto=format&fit=crop&w=1600&q=85";
 const LANDSCAPE_IMG = "https://images.unsplash.com/photo-1652121650307-57ad2716432c?auto=format&fit=crop&w=2400&q=85";
 const COURT_IMG = "https://images.unsplash.com/photo-1723438095835-220f5a82bed4?auto=format&fit=crop&w=2000&q=85";
