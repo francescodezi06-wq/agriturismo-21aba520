@@ -170,7 +170,7 @@ function Index() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-gold">La bottega</p>
-              <h2 className="font-serif text-4xl md:text-5xl mt-4">I sapori della corte, a casa tua</h2>
+              <h2 className="font-serif text-4xl md:text-5xl mt-4">Le cassette della nostra azienda</h2>
             </div>
             <Link to="/shop" className="text-gold uppercase tracking-[0.25em] text-xs hover:text-cream inline-flex items-center gap-2">Visita la bottega <ArrowRight className="w-3 h-3" /></Link>
           </div>
@@ -215,8 +215,8 @@ function Index() {
       <section className="py-20 bg-sand/40">
         <div className="container">
           <div className="text-center mb-10">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent">@aziendaagricola.lacorte</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-wood-dark mt-3">La vita in cascina</h2>
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">@agriturismolacortemuggiano</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-wood-dark mt-3">La vita in agriturismo</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-3">
             {[ABOUT_IMG, KITCHEN_IMG, COURT_IMG, LANDSCAPE_IMG, ROOMS[0].image, PRODUCTS[0].image].map((src, i) => (
@@ -235,10 +235,10 @@ function Index() {
         <div className="relative container text-center text-cream max-w-3xl">
           <MapPin className="w-6 h-6 mx-auto text-gold" />
           <h2 className="font-serif text-4xl md:text-6xl mt-6">Vieni a trovarci</h2>
-          <p className="mt-6 text-cream/80 text-lg">Muggiano, all'estremità occidentale di Milano — nel Parco Agricolo Sud.</p>
+          <p className="mt-6 text-cream/80 text-lg">Muggiano, quartiere Baggio di Milano — a pochi minuti da San Siro, CityLife e Fiera Milano.</p>
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             <Link to="/camere"><Button size="lg" className="bg-gold hover:bg-gold-dark text-wood-dark tracking-wider">Prenota il tuo soggiorno</Button></Link>
-            <a href="mailto:info@aziendaagricolalacorte.it"><Button size="lg" variant="outline" className="bg-transparent border-cream text-cream hover:bg-cream hover:text-wood-dark tracking-wider">Scrivici</Button></a>
+            <a href="mailto:info@agriturismolacortemuggiano.it"><Button size="lg" variant="outline" className="bg-transparent border-cream text-cream hover:bg-cream hover:text-wood-dark tracking-wider">Scrivici</Button></a>
           </div>
         </div>
       </section>
