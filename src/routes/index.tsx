@@ -14,8 +14,8 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Azienda Agricola La Corte · Muggiano, Milano" },
-      { name: "description", content: "Antica corte lombarda del 1800 a Muggiano, nel Parco Agricolo Sud di Milano. La storia della famiglia Alberti, l'ospitalità in cascina e i prodotti della terra." },
+      { title: "Agriturismo La Corte di Muggiano · Milano" },
+      { name: "description", content: "Agriturismo La Corte di Muggiano: soggiorno tranquillo nel quartiere Baggio di Milano, a pochi km da San Siro, CityLife e Fiera Milano City. Camere climatizzate, Wi-Fi gratuito, giardino e parcheggio privato." },
     ],
   }),
 });
