@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ROOMS } from "@/lib/site-data";
-import { BedDouble, Users, Sparkles, ArrowRight } from "lucide-react";
+import { ROOMS, BOOKING_URL } from "@/lib/site-data";
+import { BedDouble, Users, Sparkles, ArrowRight, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 
 type Room = (typeof ROOMS)[number];
@@ -12,8 +12,8 @@ export const Route = createFileRoute("/camere")({
   component: CamerePage,
   head: () => ({
     meta: [
-      { title: "Ospitalità in cascina · Azienda Agricola La Corte" },
-      { name: "description", content: "Quattro camere ricavate negli edifici storici di un'antica corte lombarda del 1800 a Muggiano, Milano. Prenota il tuo soggiorno nel Parco Agricolo Sud." },
+      { title: "Camere · Agriturismo La Corte di Muggiano" },
+      { name: "description", content: "Camere climatizzate all'Agriturismo La Corte di Muggiano, quartiere Baggio di Milano. Matrimoniale con balcone, tripla e quadrupla con bagno privato, Wi-Fi e parcheggio." },
     ],
   }),
 });
