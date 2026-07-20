@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ROOMS, BOOKING_URL } from "@/lib/site-data";
 import { BedDouble, Users, Sparkles, ArrowRight, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
+import { createBooking } from "@/lib/bookings.functions";
 
 type Room = (typeof ROOMS)[number];
 
@@ -27,12 +29,53 @@ function CamerePage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [notes, setNotes] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const submitBooking = useServerFn(createBooking);
 
-  const submit = () => {
+  const resetForm = () => {
+    setActive(null);
+    setCheckIn(""); setCheckOut(""); setGuests(2);
+    setName(""); setEmail(""); setPhone(""); setNotes("");
+  };
+
+  const submit = async () => {
+    if (submitting) return;
+    if (!active) return;
     if (!checkIn || !checkOut) { toast.error("Seleziona check-in e check-out"); return; }
-    if (!name || !email) { toast.error("Inserisci nome ed email"); return; }
-    toast.success(`Grazie ${name}! Ti contatteremo su ${email} per confermare la prenotazione.`);
-    setActive(null); setCheckIn(""); setCheckOut(""); setName(""); setEmail(""); setPhone("");
+    if (new Date(checkOut) <= new Date(checkIn)) { toast.error("Il check-out deve essere successivo al check-in"); return; }
+    if (!name.trim()) { toast.error("Inserisci nome e cognome"); return; }
+    if (!email.trim()) { toast.error("Inserisci un'email valida"); return; }
+    if (!phone.trim()) { toast.error("Inserisci un numero di telefono"); return; }
+    if (guests < 1 || guests > active.capacity) { toast.error(`Numero ospiti non valido (max ${active.capacity})`); return; }
+
+    const parts = name.trim().split(/\s+/);
+    const firstName = parts[0];
+    const lastName = parts.slice(1).join(" ") || parts[0];
+
+    setSubmitting(true);
+    try {
+      const result = await submitBooking({
+        data: {
+          firstName, lastName,
+          email: email.trim(), phone: phone.trim(),
+          roomId: active.id, roomName: active.name,
+          checkIn, checkOut, guests,
+          notes: notes.trim() || null,
+        },
+      });
+      if (result.ok) {
+        toast.success(`Grazie ${firstName}! Abbiamo ricevuto la tua richiesta di prenotazione. Ti contatteremo a breve su ${email.trim()} per la conferma.`);
+        resetForm();
+      } else {
+        toast.error(result.message);
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Si è verificato un errore. Riprova più tardi.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -131,7 +174,7 @@ function CamerePage() {
                 <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Nome e cognome" value={name} onChange={(e) => setName(e.target.value)} />
                 <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Telefono" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                <Button onClick={submit} className="w-full bg-olive hover:bg-olive-dark text-cream">Invia richiesta</Button>
+                <Button onClick={submit} disabled={submitting} className="w-full bg-olive hover:bg-olive-dark text-cream disabled:opacity-70">{submitting ? "Invio in corso…" : "Invia richiesta"}</Button>
                 <p className="text-[11px] text-muted-foreground text-center">Ti risponderemo entro 24 ore per confermare la disponibilità.</p>
               </div>
             </>
