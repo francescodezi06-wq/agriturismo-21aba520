@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { ROOMS, BOOKING_URL } from "@/lib/site-data";
 import { BedDouble, Users, Sparkles, ArrowRight, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
+import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 
 type Room = (typeof ROOMS)[number];
 
