@@ -6,7 +6,8 @@ import { MENU } from "@/lib/site-data";
 import { Wheat, Leaf, Clock } from "lucide-react";
 import { toast } from "sonner";
 
-const HERO = "https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=2400&q=85";
+import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
+const HERO = heroAsset.url;
 const INTERIOR = "https://images.unsplash.com/photo-1579926545913-448d525562db?auto=format&fit=crop&w=1800&q=85";
 const DISH = "https://images.unsplash.com/photo-1662197480393-2a82030b7b83?auto=format&fit=crop&w=1600&q=85";
 
