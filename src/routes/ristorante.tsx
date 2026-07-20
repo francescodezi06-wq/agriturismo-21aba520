@@ -35,11 +35,11 @@ function RistorantePage() {
     <>
       <section className="relative h-[70vh] overflow-hidden">
         <img src={HERO} className="w-full h-full object-cover" alt="La cucina della corte a Muggiano" />
-        <div className="absolute inset-0 bg-wood-dark/60" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-cream container">
+        <div className="absolute inset-0 bg-wood-dark/65" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white container">
           <p className="text-xs uppercase tracking-[0.4em] text-gold">La cucina</p>
-          <h1 className="font-serif text-5xl md:text-7xl mt-6 max-w-4xl">Cucina di <em className="font-light">famiglia</em></h1>
-          <p className="mt-6 max-w-xl text-cream/85">Ricette lombarde tramandate in famiglia, con i prodotti della nostra corte e dell'orto. Aperto su prenotazione.</p>
+          <h1 className="font-serif text-5xl md:text-7xl mt-6 max-w-4xl text-white">Cucina di <em className="font-light">famiglia</em></h1>
+          <p className="mt-6 max-w-xl text-white/90">Ricette lombarde tramandate in famiglia, con i prodotti della nostra corte e dell'orto. Aperto su prenotazione.</p>
         </div>
       </section>
 
