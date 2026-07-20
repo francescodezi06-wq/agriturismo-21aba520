@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { PRODUCTS, PRODUCT_CATEGORIES } from "@/lib/site-data";
 import { ShoppingBag, ShieldCheck, Leaf } from "lucide-react";
 import { toast } from "sonner";
+import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 
 export const Route = createFileRoute("/shop")({
   component: ShopPage,
