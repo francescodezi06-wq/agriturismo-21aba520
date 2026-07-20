@@ -174,7 +174,7 @@ function CamerePage() {
                 <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Nome e cognome" value={name} onChange={(e) => setName(e.target.value)} />
                 <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Telefono" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                <Button onClick={submit} className="w-full bg-olive hover:bg-olive-dark text-cream">Invia richiesta</Button>
+                <Button onClick={submit} disabled={submitting} className="w-full bg-olive hover:bg-olive-dark text-cream disabled:opacity-70">{submitting ? "Invio in corso…" : "Invia richiesta"}</Button>
                 <p className="text-[11px] text-muted-foreground text-center">Ti risponderemo entro 24 ore per confermare la disponibilità.</p>
               </div>
             </>
