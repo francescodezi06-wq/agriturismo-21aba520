@@ -48,13 +48,13 @@ async function trySendEmails(payload: {
     await sendTemplateEmail("booking-confirmation", payload.email, {
       templateData: payload,
       idempotencyKey: `booking-confirm-${payload.bookingId}`,
-    }).catch((err) => console.error("[booking] client email failed", err));
+    }).catch((err: unknown) => console.error("[booking] client email failed", err));
 
     if (adminEmail) {
       await sendTemplateEmail("booking-admin-notification", adminEmail, {
         templateData: payload,
         idempotencyKey: `booking-admin-${payload.bookingId}`,
-      }).catch((err) => console.error("[booking] admin email failed", err));
+      }).catch((err: unknown) => console.error("[booking] admin email failed", err));
     } else {
       console.warn("[booking] ADMIN_EMAIL not configured — admin notification skipped");
     }
