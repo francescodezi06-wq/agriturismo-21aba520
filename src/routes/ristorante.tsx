@@ -6,7 +6,8 @@ import { MENU } from "@/lib/site-data";
 import { Wheat, Leaf, Clock } from "lucide-react";
 import { toast } from "sonner";
 
-const HERO = "https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=2400&q=85";
+import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
+const HERO = heroAsset.url;
 const INTERIOR = "https://images.unsplash.com/photo-1579926545913-448d525562db?auto=format&fit=crop&w=1800&q=85";
 const DISH = "https://images.unsplash.com/photo-1662197480393-2a82030b7b83?auto=format&fit=crop&w=1600&q=85";
 
@@ -34,11 +35,11 @@ function RistorantePage() {
     <>
       <section className="relative h-[70vh] overflow-hidden">
         <img src={HERO} className="w-full h-full object-cover" alt="La cucina della corte a Muggiano" />
-        <div className="absolute inset-0 bg-wood-dark/60" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-cream container">
+        <div className="absolute inset-0 bg-wood-dark/65" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white container">
           <p className="text-xs uppercase tracking-[0.4em] text-gold">La cucina</p>
-          <h1 className="font-serif text-5xl md:text-7xl mt-6 max-w-4xl">Cucina di <em className="font-light">famiglia</em></h1>
-          <p className="mt-6 max-w-xl text-cream/85">Ricette lombarde tramandate in famiglia, con i prodotti della nostra corte e dell'orto. Aperto su prenotazione.</p>
+          <h1 className="font-serif text-5xl md:text-7xl mt-6 max-w-4xl text-white">Cucina di <em className="font-light">famiglia</em></h1>
+          <p className="mt-6 max-w-xl text-white/90">Ricette lombarde tramandate in famiglia, con i prodotti della nostra corte e dell'orto. Aperto su prenotazione.</p>
         </div>
       </section>
 

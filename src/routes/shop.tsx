@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { PRODUCTS, PRODUCT_CATEGORIES } from "@/lib/site-data";
 import { ShoppingBag, ShieldCheck, Leaf } from "lucide-react";
 import { toast } from "sonner";
+import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 
 export const Route = createFileRoute("/shop")({
   component: ShopPage,
@@ -27,12 +28,12 @@ function ShopPage() {
   return (
     <>
       <section className="relative h-[55vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2400&q=85" className="w-full h-full object-cover" alt="Le cassette di prodotti dell'agriturismo" />
-        <div className="absolute inset-0 bg-wood-dark/55" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-cream">
+        <img src={heroAsset.url} className="w-full h-full object-cover" alt="Le cassette di prodotti dell'agriturismo" />
+        <div className="absolute inset-0 bg-wood-dark/65" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
           <p className="text-xs uppercase tracking-[0.4em] text-gold">La bottega</p>
-          <h1 className="font-serif text-5xl md:text-7xl mt-4 max-w-3xl">Le nostre <em className="font-light">cassette</em></h1>
-          <p className="mt-4 text-cream/80">Carne bovina e prodotti dell'azienda · Ritiro in agriturismo</p>
+          <h1 className="font-serif text-5xl md:text-7xl mt-4 max-w-3xl text-white">Le nostre <em className="font-light">cassette</em></h1>
+          <p className="mt-4 text-white/90">Carne bovina e prodotti dell'azienda · Ritiro in agriturismo</p>
         </div>
       </section>
 

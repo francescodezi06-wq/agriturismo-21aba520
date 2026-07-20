@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { ROOMS, BOOKING_URL } from "@/lib/site-data";
 import { BedDouble, Users, Sparkles, ArrowRight, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
+import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 
 type Room = (typeof ROOMS)[number];
 
@@ -37,12 +38,12 @@ function CamerePage() {
   return (
     <>
       <section className="relative h-[60vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?auto=format&fit=crop&w=2400&q=85" className="w-full h-full object-cover" alt="Camere dell'Agriturismo La Corte di Muggiano" />
-        <div className="absolute inset-0 bg-wood-dark/50" />
+        <img src={heroAsset.url} className="w-full h-full object-cover" alt="Camere dell'Agriturismo La Corte di Muggiano" />
+        <div className="absolute inset-0 bg-wood-dark/60" />
         <div className="absolute inset-0 flex items-end pb-16">
-          <div className="container text-cream">
+          <div className="container text-white">
             <p className="text-xs uppercase tracking-[0.3em] text-gold">L'ospitalità</p>
-            <h1 className="font-serif text-5xl md:text-7xl mt-4">Le nostre <em className="font-light">camere</em></h1>
+            <h1 className="font-serif text-5xl md:text-7xl mt-4 text-white">Le nostre <em className="font-light">camere</em></h1>
           </div>
         </div>
       </section>
