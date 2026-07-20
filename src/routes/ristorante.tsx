@@ -32,7 +32,7 @@ function RistorantePage() {
 
   return (
     <>
-      <section className="relative h-[70vh] overflow-hidden pt-20">
+      <section className="relative h-[70vh] overflow-hidden">
         <img src={HERO} className="w-full h-full object-cover" alt="La cucina della corte a Muggiano" />
         <div className="absolute inset-0 bg-wood-dark/60" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-cream container">

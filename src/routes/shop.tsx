@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PRODUCTS, PRODUCT_CATEGORIES } from "@/lib/site-data";
-import { ShoppingBag, Truck, ShieldCheck, Leaf } from "lucide-react";
+import { ShoppingBag, ShieldCheck, Leaf } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/shop")({
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: "La Bottega · Agriturismo La Corte di Muggiano" },
-      { name: "description", content: "Le cassette di prodotti dell'Agriturismo La Corte di Muggiano: carne bovina, prodotti dell'azienda agricola e cassette di stagione, con ritiro in agriturismo o spedizione." },
+      { name: "description", content: "Le cassette di prodotti dell'Agriturismo La Corte di Muggiano: carne bovina, prodotti dell'azienda agricola e cassette di stagione, con ritiro in agriturismo." },
     ],
   }),
 });
@@ -26,20 +26,19 @@ function ShopPage() {
 
   return (
     <>
-      <section className="relative h-[55vh] overflow-hidden pt-20">
+      <section className="relative h-[55vh] overflow-hidden">
         <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2400&q=85" className="w-full h-full object-cover" alt="Le cassette di prodotti dell'agriturismo" />
         <div className="absolute inset-0 bg-wood-dark/55" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-cream">
           <p className="text-xs uppercase tracking-[0.4em] text-gold">La bottega</p>
           <h1 className="font-serif text-5xl md:text-7xl mt-4 max-w-3xl">Le nostre <em className="font-light">cassette</em></h1>
-          <p className="mt-4 text-cream/80">Carne bovina e prodotti dell'azienda · Ritiro in agriturismo o spedizione</p>
+          <p className="mt-4 text-cream/80">Carne bovina e prodotti dell'azienda · Ritiro in agriturismo</p>
         </div>
       </section>
 
       <section className="py-6 bg-sand/30 border-y border-sand">
-        <div className="container grid grid-cols-2 md:grid-cols-4 gap-4 text-xs uppercase tracking-wider text-wood-dark">
+        <div className="container grid grid-cols-1 md:grid-cols-3 gap-4 text-xs uppercase tracking-wider text-wood-dark">
           <div className="flex items-center gap-2"><Leaf className="w-4 h-4 text-olive" /> Produzione dell'azienda</div>
-          <div className="flex items-center gap-2"><Truck className="w-4 h-4 text-olive" /> Spedizione in Italia</div>
           <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-olive" /> Filiera controllata</div>
           <div className="flex items-center gap-2"><ShoppingBag className="w-4 h-4 text-olive" /> Ritiro in agriturismo</div>
         </div>
