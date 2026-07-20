@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PRODUCTS, PRODUCT_CATEGORIES } from "@/lib/site-data";
-import { ShoppingBag, Truck, ShieldCheck, Leaf } from "lucide-react";
+import { ShoppingBag, ShieldCheck, Leaf } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/shop")({
