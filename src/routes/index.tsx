@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowRight, Star, Leaf, Sparkles, MapPin, Wheat, Utensils, Home } from "lucide-react";
+import { ArrowRight, Star, Leaf, Sparkles, MapPin, Wheat, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ROOMS, PRODUCTS, TESTIMONIALS } from "@/lib/site-data";
 
@@ -48,8 +48,7 @@ function Index() {
           </p>
           <div className="flex flex-wrap gap-3 mt-10 animate-fade-in" style={{ animationDelay: "1s", opacity: 0 }}>
             <Link to="/camere"><Button size="lg" className="bg-olive hover:bg-olive-dark text-cream uppercase tracking-[0.2em] text-xs px-8 h-12">Ospitalità in cascina</Button></Link>
-            <Link to="/ristorante"><Button size="lg" variant="outline" className="bg-transparent border-cream text-cream hover:bg-cream hover:text-wood-dark uppercase tracking-[0.2em] text-xs px-8 h-12">La cucina</Button></Link>
-            <Link to="/shop"><Button size="lg" variant="ghost" className="text-cream hover:bg-cream/10 hover:text-cream uppercase tracking-[0.2em] text-xs px-8 h-12">La bottega</Button></Link>
+            <Link to="/shop"><Button size="lg" variant="outline" className="bg-transparent border-cream text-cream hover:bg-cream hover:text-wood-dark uppercase tracking-[0.2em] text-xs px-8 h-12">La bottega</Button></Link>
           </div>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/70 text-xs uppercase tracking-[0.3em] animate-bounce">scorri</div>
@@ -142,26 +141,6 @@ function Index() {
           <Sparkles className="w-6 h-6 mx-auto text-gold" />
           <p className="font-serif text-3xl md:text-5xl italic mt-6 leading-snug">&laquo; Un angolo di campagna nel cuore di Milano. &raquo;</p>
           <p className="mt-6 uppercase tracking-[0.3em] text-xs text-gold">— Agriturismo La Corte di Muggiano</p>
-        </div>
-      </section>
-
-      {/* CUCINA */}
-      <section className="py-24 md:py-32 bg-cream">
-        <div className="container grid md:grid-cols-2 gap-16 items-center">
-          <div className="order-2 md:order-1 relative aspect-[4/5] overflow-hidden rounded-sm luxury-shadow">
-            <img src={KITCHEN_IMG} alt="La cucina di famiglia dell'Azienda Agricola La Corte" className="w-full h-full object-cover" />
-          </div>
-          <div className="order-1 md:order-2">
-            <p className="ornament-divider text-xs uppercase tracking-[0.3em] mb-8"><span>La cucina</span></p>
-            <h2 className="font-serif text-4xl md:text-5xl text-wood-dark leading-tight">La tradizione <em className="text-olive">lombarda</em>, a tavola con noi</h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed text-lg">Piatti di casa preparati con i prodotti della nostra corte e del territorio: risotto giallo, cassoeula, verdure dell'orto e ricette tramandate in famiglia.</p>
-            <ul className="mt-6 space-y-2 text-sm">
-              <li className="flex gap-2"><Leaf className="w-4 h-4 text-olive mt-0.5" /> Orto di famiglia, uova e prodotti a chilometro zero</li>
-              <li className="flex gap-2"><Utensils className="w-4 h-4 text-olive mt-0.5" /> Menu di stagione della tradizione milanese</li>
-              <li className="flex gap-2"><Wheat className="w-4 h-4 text-olive mt-0.5" /> Riso e farine dai campi del Parco Sud</li>
-            </ul>
-            <Link to="/ristorante" className="inline-block mt-8"><Button className="bg-wood-dark hover:bg-wood text-cream tracking-wider">Menu &amp; prenotazione</Button></Link>
-          </div>
         </div>
       </section>
 
