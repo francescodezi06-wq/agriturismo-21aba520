@@ -9,7 +9,7 @@ const HERO_IMG = heroAsset.url;
 const ABOUT_IMG = "https://images.unsplash.com/photo-1699394631060-a643e09d4780?auto=format&fit=crop&w=1600&q=85";
 const LANDSCAPE_IMG = "https://images.unsplash.com/photo-1652121650307-57ad2716432c?auto=format&fit=crop&w=2400&q=85";
 const COURT_IMG = "https://images.unsplash.com/photo-1723438095835-220f5a82bed4?auto=format&fit=crop&w=2000&q=85";
-const KITCHEN_IMG = "https://images.unsplash.com/photo-1579926545913-448d525562db?auto=format&fit=crop&w=1800&q=85";
+const GALLERY_IMG = "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1800&q=85";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -199,7 +199,7 @@ function Index() {
             <h2 className="font-serif text-3xl md:text-4xl text-wood-dark mt-3">La vita in agriturismo</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-3">
-            {[ABOUT_IMG, KITCHEN_IMG, COURT_IMG, LANDSCAPE_IMG, ROOMS[0].image, PRODUCTS[0].image].map((src, i) => (
+            {[ABOUT_IMG, GALLERY_IMG, COURT_IMG, LANDSCAPE_IMG, ROOMS[0].image, PRODUCTS[0].image].map((src, i) => (
               <a key={i} href="#" className="aspect-square overflow-hidden group">
                 <img src={src} className="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Momenti di vita nella corte" />
               </a>
