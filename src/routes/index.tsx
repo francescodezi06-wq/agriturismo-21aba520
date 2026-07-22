@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowRight, Star, Sparkles, MapPin, Home } from "lucide-react";
+import { ArrowRight, Star, Leaf, Sparkles, MapPin, Wheat, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ROOMS, PRODUCTS, TESTIMONIALS } from "@/lib/site-data";
 
