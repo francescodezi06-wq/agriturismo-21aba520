@@ -22,7 +22,6 @@ export default function SiteFooter() {
           <h4 className="font-serif text-lg mb-4 text-gold">La Corte</h4>
           <ul className="space-y-2 text-sm">
             <li><Link to="/camere" className="hover:text-gold">Ospitalità</Link></li>
-            <li><Link to="/ristorante" className="hover:text-gold">Cucina</Link></li>
             <li><Link to="/shop" className="hover:text-gold">Bottega</Link></li>
             <li><a href="/#chi-siamo" className="hover:text-gold">La nostra storia</a></li>
           </ul>

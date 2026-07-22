@@ -11,7 +11,6 @@ import logoUrl from "@/assets/logo-lacorte.png";
 const NAV = [
   { href: "/", label: "Home" },
   { href: "/camere", label: "Ospitalità" },
-  { href: "/ristorante", label: "Cucina" },
   { href: "/shop", label: "Bottega" },
   { href: "/#contatti", label: "Contatti" },
 ] as const;
