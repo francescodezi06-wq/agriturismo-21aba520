@@ -71,6 +71,21 @@ export const ROOMS = [
     amenities: ROOM_AMENITIES.filter((a) => a !== "Balcone"),
     bathroom: BATHROOM_AMENITIES,
   },
+  {
+    id: "camera-doppia-superior",
+    name: "Camera Doppia Superior con Vista Corte",
+    tagline: "La più ampia e luminosa",
+    description:
+      "Camera doppia climatizzata con ingresso indipendente, affaccio sulla corte interna della cascina e bagno privato completo di doccia, bidet e asciugacapelli. Spaziosa e silenziosa, ideale per chi cerca tranquillità senza rinunciare alla comodità del centro di Milano.",
+    pricePerNight: 110,
+    capacity: 2,
+    size: 18,
+    bed: "1 letto matrimoniale alla francese",
+    image:
+      "https://images.unsplash.com/photo-1590490360182-c33d537334fa?auto=format&fit=crop&w=1600&q=85",
+    amenities: ROOM_AMENITIES.filter((a) => a !== "Balcone"),
+    bathroom: BATHROOM_AMENITIES,
+  },
 ];
 
 export const BOOKING_URL =

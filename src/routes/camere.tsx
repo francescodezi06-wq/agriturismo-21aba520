@@ -16,7 +16,7 @@ export const Route = createFileRoute("/camere")({
   head: () => ({
     meta: [
       { title: "Camere · Agriturismo La Corte di Muggiano" },
-      { name: "description", content: "Camere climatizzate all'Agriturismo La Corte di Muggiano, quartiere Baggio di Milano. Matrimoniale con balcone, tripla e quadrupla con bagno privato, Wi-Fi e parcheggio." },
+      { name: "description", content: "Camere climatizzate all'Agriturismo La Corte di Muggiano, quartiere Baggio di Milano. Matrimoniale con balcone, tripla, quadrupla e doppia superior con bagno privato, Wi-Fi e parcheggio." },
     ],
   }),
 });
