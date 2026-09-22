@@ -115,7 +115,7 @@ function CamerePage() {
         <div className="container space-y-24">
           {ROOMS.map((r, i) => (
             <article key={r.id} id={r.id} className="grid lg:grid-cols-12 gap-10 items-center scroll-mt-24">
-              <div className={`lg:col-span-7 grid grid-cols-3 grid-rows-2 gap-1 aspect-[4/3] overflow-hidden rounded-sm luxury-shadow ${i % 2 ? "lg:order-2" : ""}`}>
+              <div className={`lg:col-span-7 relative grid grid-cols-3 grid-rows-2 gap-1 aspect-[4/3] overflow-hidden rounded-sm luxury-shadow ${i % 2 ? "lg:order-2" : ""}`}>
                 {r.images.map((image, imageIndex) => (
                   <img
                     key={image}
