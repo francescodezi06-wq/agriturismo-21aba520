@@ -16,7 +16,11 @@ export const Route = createFileRoute("/camere")({
   head: () => ({
     meta: [
       { title: "Camere · Agriturismo La Corte di Muggiano" },
-      { name: "description", content: "Camere climatizzate all'Agriturismo La Corte di Muggiano, quartiere Baggio di Milano. Matrimoniale con balcone, tripla, quadrupla e doppia superior con bagno privato, Wi-Fi e parcheggio." },
+      { name: "description", content: "Scopri le camere Aurora, Luna, Stella e Tramonto dell'Agriturismo La Corte di Muggiano: quattro ambienti accoglienti con bagno privato, Wi-Fi e parcheggio." },
+      { property: "og:title", content: "Camere · Agriturismo La Corte di Muggiano" },
+      { property: "og:description", content: "Scopri le camere Aurora, Luna, Stella e Tramonto, quattro ambienti accoglienti alle porte di Milano." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });
@@ -111,8 +115,15 @@ function CamerePage() {
         <div className="container space-y-24">
           {ROOMS.map((r, i) => (
             <article key={r.id} id={r.id} className="grid lg:grid-cols-12 gap-10 items-center scroll-mt-24">
-              <div className={`lg:col-span-7 relative aspect-[4/3] overflow-hidden rounded-sm luxury-shadow ${i % 2 ? "lg:order-2" : ""}`}>
-                <img src={r.image} alt={r.name} className="w-full h-full object-cover" />
+              <div className={`lg:col-span-7 relative grid grid-cols-3 grid-rows-2 gap-1 aspect-[4/3] overflow-hidden rounded-sm luxury-shadow ${i % 2 ? "lg:order-2" : ""}`}>
+                {r.images.map((image, imageIndex) => (
+                  <img
+                    key={image}
+                    src={image}
+                    alt={`${r.name}${imageIndex === 0 ? "" : imageIndex === r.images.length - 1 ? " · bagno privato" : " · dettaglio"}`}
+                    className={`h-full w-full object-cover ${imageIndex === 0 ? "col-span-2 row-span-2" : r.images.length === 2 ? "row-span-2" : ""}`}
+                  />
+                ))}
                 <div className="absolute top-4 left-4 bg-cream px-3 py-1 text-xs uppercase tracking-wider text-wood-dark">N. 0{i+1}</div>
               </div>
               <div className="lg:col-span-5">

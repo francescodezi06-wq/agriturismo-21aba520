@@ -1,3 +1,14 @@
+import cameraAurora from "@/assets/rooms/camera-aurora.jpg.asset.json";
+import cameraAuroraSeconda from "@/assets/rooms/camera-aurora-2.jpg.asset.json";
+import cameraAuroraBagno from "@/assets/rooms/camera-aurora-bagno.jpg.asset.json";
+import cameraLuna from "@/assets/rooms/camera-luna.jpg.asset.json";
+import cameraLunaSeconda from "@/assets/rooms/camera-luna-2.jpg.asset.json";
+import cameraLunaBagno from "@/assets/rooms/camera-luna-bagno.jpg.asset.json";
+import cameraStella from "@/assets/rooms/camera-stella.jpg.asset.json";
+import cameraStellaBagno from "@/assets/rooms/camera-stella-bagno.jpg.asset.json";
+import cameraTramonto from "@/assets/rooms/camera-tramonto.jpg.asset.json";
+import cameraTramontoBagno from "@/assets/rooms/camera-tramonto-bagno.jpg.asset.json";
+
 // Contenuti del sito Agriturismo La Corte di Muggiano — Milano.
 const ROOM_AMENITIES = [
   "Balcone",
@@ -27,62 +38,62 @@ const BATHROOM_AMENITIES = [
 
 export const ROOMS = [
   {
-    id: "camera-matrimoniale-balcone",
-    name: "Camera Matrimoniale con Balcone",
-    tagline: "Con balcone privato",
+    id: "camera-aurora",
+    name: "Camera Aurora",
+    tagline: "Calda e accogliente",
     description:
-      "Camera matrimoniale climatizzata dotata di ingresso indipendente, balcone con vista su una strada tranquilla e bagno privato con doccia.",
+      "Una camera matrimoniale vivace e accogliente, caratterizzata dalle tonalità del rosso e da un elegante letto in ferro battuto. Gli arredi in legno e il lampadario classico creano un'atmosfera intima, completata da un bagno privato coordinato con doccia.",
     pricePerNight: 95,
     capacity: 2,
     size: 15,
-    bed: "1 letto matrimoniale alla francese",
-    image:
-      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1600&q=85",
+    bed: "1 letto matrimoniale",
+    image: cameraAurora.url,
+    images: [cameraAurora.url, cameraAuroraSeconda.url, cameraAuroraBagno.url],
     amenities: ROOM_AMENITIES,
     bathroom: BATHROOM_AMENITIES,
   },
   {
-    id: "camera-tripla-classic",
-    name: "Camera Tripla Classic",
-    tagline: "Ideale per piccoli gruppi",
+    id: "camera-luna",
+    name: "Camera Luna",
+    tagline: "Luminosa e raffinata",
     description:
-      "Camera tripla climatizzata con bagno privato completo di doccia, bidet e asciugacapelli. Dispone di ingresso indipendente, TV a schermo piatto, armadio, bollitore elettrico e vista su una tranquilla strada.",
+      "Una camera matrimoniale ampia e luminosa, impreziosita da una parete color giallo caldo, letto in ferro battuto e mobili d'epoca. Le grandi finestre lasciano entrare la luce naturale, mentre il bagno privato con doccia riprende i toni delicati della stanza.",
     pricePerNight: 120,
-    capacity: 3,
+    capacity: 2,
     size: 10,
-    bed: "1 letto singolo + 1 matrimoniale alla francese",
-    image:
-      "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1600&q=85",
+    bed: "1 letto matrimoniale",
+    image: cameraLuna.url,
+    images: [cameraLuna.url, cameraLunaSeconda.url, cameraLunaBagno.url],
     amenities: ROOM_AMENITIES.filter((a) => a !== "Balcone"),
     bathroom: BATHROOM_AMENITIES,
   },
   {
-    id: "camera-quadrupla-standard",
-    name: "Camera Quadrupla Standard",
-    tagline: "Perfetta per famiglie",
+    id: "camera-stella",
+    name: "Camera Stella",
+    tagline: "Romantica e raccolta",
     description:
-      "Camera quadrupla climatizzata con bagno privato completo di doccia, bidet e asciugacapelli. Dispone di ingresso indipendente, TV a schermo piatto, armadio, bollitore elettrico e vista su una tranquilla strada.",
+      "Una camera matrimoniale dal carattere romantico, con parete color prugna, tessili nelle sfumature del rosso e un delicato letto in ferro bianco. L'ambiente raccolto e curato è accompagnato da un bagno privato con ampia doccia.",
     pricePerNight: 145,
-    capacity: 4,
+    capacity: 2,
     size: 6,
-    bed: "2 letti singoli + 1 matrimoniale alla francese",
-    image:
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1600&q=85",
+    bed: "1 letto matrimoniale",
+    image: cameraStella.url,
+    images: [cameraStella.url, cameraStellaBagno.url],
     amenities: ROOM_AMENITIES.filter((a) => a !== "Balcone"),
     bathroom: BATHROOM_AMENITIES,
   },
   {
-    id: "camera-doppia-superior",
-    name: "Camera Doppia Superior con Vista Corte",
-    tagline: "La più ampia e luminosa",
+    id: "camera-tramonto",
+    name: "Camera Tramonto",
+    tagline: "Avvolgente e rilassante",
     description:
-      "Camera doppia climatizzata con ingresso indipendente, affaccio sulla corte interna della cascina e bagno privato completo di doccia, bidet e asciugacapelli. Spaziosa e silenziosa, ideale per chi cerca tranquillità senza rinunciare alla comodità del centro di Milano.",
+      "Una camera matrimoniale dai toni caldi dell'arancio, ispirati alla luce del tramonto. Il letto in ferro battuto, le tende leggere e la luce naturale rendono l'ambiente accogliente e rilassante; il bagno privato con doccia completa il soggiorno.",
     pricePerNight: 110,
     capacity: 2,
     size: 18,
-    bed: "1 letto matrimoniale alla francese",
-    image:
-      "https://images.unsplash.com/photo-1590490360182-c33d537334fa?auto=format&fit=crop&w=1600&q=85",
+    bed: "1 letto matrimoniale",
+    image: cameraTramonto.url,
+    images: [cameraTramonto.url, cameraTramontoBagno.url],
     amenities: ROOM_AMENITIES.filter((a) => a !== "Balcone"),
     bathroom: BATHROOM_AMENITIES,
   },
