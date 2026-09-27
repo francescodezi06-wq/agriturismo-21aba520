@@ -17,6 +17,10 @@ export const Route = createFileRoute("/ristorante")({
     meta: [
       { title: "La cucina di famiglia · Azienda Agricola La Corte" },
       { name: "description", content: "La cucina lombarda dell'Azienda Agricola La Corte a Muggiano, Milano: risotto giallo, cassoeula, ossobuco e piatti di stagione dell'orto di famiglia." },
+      { property: "og:title", content: "La cucina di famiglia · Azienda Agricola La Corte" },
+      { property: "og:description", content: "La cucina lombarda dell'Azienda Agricola La Corte a Muggiano, Milano." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });
