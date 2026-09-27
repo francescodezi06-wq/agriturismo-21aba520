@@ -8,11 +8,11 @@ import cameraStella from "@/assets/rooms/camera-stella.jpg.asset.json";
 import cameraStellaBagno from "@/assets/rooms/camera-stella-bagno.jpg.asset.json";
 import cameraTramonto from "@/assets/rooms/camera-tramonto.jpg.asset.json";
 import cameraTramontoBagno from "@/assets/rooms/camera-tramonto-bagno.jpg.asset.json";
-import cattlePair from "@/assets/farm/lacorte-04.jpg.asset.json";
-import cattlePortrait from "@/assets/farm/lacorte-06.jpg.asset.json";
-import farmField from "@/assets/farm/lacorte-03.jpg.asset.json";
-import farmLandscape from "@/assets/farm/lacorte-10.jpg.asset.json";
-import farmPoppies from "@/assets/farm/lacorte-08.jpg.asset.json";
+import beef5 from "@/assets/products/beef-5.jpg";
+import beef10 from "@/assets/products/beef-10.jpg";
+import beef15 from "@/assets/products/beef-15.jpg";
+import farmSelection from "@/assets/products/farm-selection.jpg";
+import seasonalProduce from "@/assets/products/seasonal-produce.jpg";
 
 // Contenuti del sito Agriturismo La Corte di Muggiano — Milano.
 const ROOM_AMENITIES = [
@@ -115,7 +115,7 @@ export const PRODUCTS = [
     price: 89,
     description:
       "Selezione di tagli misti di carne bovina allevata nella nostra azienda: bistecche, arrosti, macinato e pezzi per bollito. Confezionata sottovuoto.",
-    image: cattlePair.url,
+    image: beef5,
   },
   {
     id: "cassetta-bovina-10",
@@ -124,7 +124,7 @@ export const PRODUCTS = [
     price: 169,
     description:
       "Cassetta famiglia con 10 kg di carne bovina della nostra azienda: tagli per griglia, arrosto, spezzatino, macinato e brodo. Sottovuoto e pronta al congelamento.",
-    image: cattlePortrait.url,
+    image: beef10,
   },
   {
     id: "cassetta-bovina-15",
@@ -133,7 +133,7 @@ export const PRODUCTS = [
     price: 239,
     description:
       "La cassetta più completa: 15 kg di carne bovina dell'azienda, dai tagli nobili al bollito, macinato e ossobuco. Perfetta per riempire il freezer di casa.",
-    image: farmLandscape.url,
+    image: beef15,
   },
   {
     id: "cassetta-azienda",
@@ -142,7 +142,7 @@ export const PRODUCTS = [
     price: 55,
     description:
       "Una selezione dei prodotti della corte: uova fresche, miele, conserve di stagione, farine e ortaggi coltivati nei nostri campi.",
-    image: farmPoppies.url,
+    image: farmSelection,
   },
   {
     id: "cassetta-stagionale",
@@ -151,7 +151,7 @@ export const PRODUCTS = [
     price: 35,
     description:
       "Ortaggi, frutta ed erbe raccolti al momento nei nostri orti, secondo il ritmo delle stagioni della pianura padana.",
-    image: farmField.url,
+    image: seasonalProduce,
   },
 ];
 
