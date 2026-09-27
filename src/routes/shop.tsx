@@ -6,6 +6,8 @@ import { PRODUCTS, PRODUCT_CATEGORIES } from "@/lib/site-data";
 import { ShoppingBag, ShieldCheck, Leaf } from "lucide-react";
 import { toast } from "sonner";
 import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
+import meatCounter from "@/assets/farm/lacorte-01.jpg.asset.json";
+import meatCuts from "@/assets/farm/lacorte-02.jpg.asset.json";
 
 export const Route = createFileRoute("/shop")({
   component: ShopPage,
@@ -13,6 +15,10 @@ export const Route = createFileRoute("/shop")({
     meta: [
       { title: "La Bottega · Agriturismo La Corte di Muggiano" },
       { name: "description", content: "Le cassette di prodotti dell'Agriturismo La Corte di Muggiano: carne bovina, prodotti dell'azienda agricola e cassette di stagione, con ritiro in agriturismo." },
+        { property: "og:title", content: "La Bottega · Agriturismo La Corte di Muggiano" },
+        { property: "og:description", content: "Carne bovina e prodotti dell'azienda agricola, con ritiro in agriturismo a Muggiano." },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });
@@ -47,6 +53,19 @@ function ShopPage() {
 
       <section className="py-16 bg-cream">
         <div className="container">
+          <div className="mb-8">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Dalla nostra azienda</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-wood-dark mt-3">La nostra carne bovina</h2>
+          </div>
+          <div className="grid grid-cols-2 gap-3 md:gap-6">
+            <img src={meatCounter.url} alt="Tagli di carne bovina al banco" className="w-full h-56 md:h-96 object-cover rounded-sm" />
+            <img src={meatCuts.url} alt="Selezione di tagli di carne bovina" className="w-full h-56 md:h-96 object-cover rounded-sm" />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-cream">
+        <div className="container">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
             <div className="flex flex-wrap gap-2">
               {PRODUCT_CATEGORIES.map((c) => (
@@ -63,8 +82,10 @@ function ShopPage() {
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {list.map((p) => (
               <div key={p.id} className="group bg-white border border-sand/60 rounded-sm overflow-hidden flex flex-col">
-                <div className="aspect-square overflow-hidden relative bg-sand/20">
-                  <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+                <div className="aspect-square relative bg-sand/20 flex items-center justify-center overflow-hidden">
+                  <div className="w-[68%] aspect-square rounded-full border border-olive/40 p-2 md:p-3 shadow-sm">
+                    <img src={p.image} alt={`Scorcio dell'azienda agricola per ${p.name}`} className="w-full h-full rounded-full object-cover group-hover:scale-105 transition duration-700" />
+                  </div>
                   <Badge className="absolute top-3 left-3 bg-terracotta text-cream">Prodotto dell'azienda</Badge>
                 </div>
                 <div className="p-5 flex flex-col flex-1">
