@@ -5,11 +5,17 @@ import { Button } from "@/components/ui/button";
 import { ROOMS, PRODUCTS, TESTIMONIALS } from "@/lib/site-data";
 
 import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
+import fieldAsset from "@/assets/farm/lacorte-03.jpg.asset.json";
+import cattleAsset from "@/assets/farm/lacorte-04.jpg.asset.json";
+import canalAsset from "@/assets/farm/lacorte-05.jpg.asset.json";
+import shopfrontAsset from "@/assets/farm/lacorte-07.jpg.asset.json";
+import poppiesAsset from "@/assets/farm/lacorte-08.jpg.asset.json";
+import facadeAsset from "@/assets/farm/lacorte-09.jpg.asset.json";
+import landscapeAsset from "@/assets/farm/lacorte-10.jpg.asset.json";
 const HERO_IMG = heroAsset.url;
-const ABOUT_IMG = "https://images.unsplash.com/photo-1699394631060-a643e09d4780?auto=format&fit=crop&w=1600&q=85";
-const LANDSCAPE_IMG = "https://images.unsplash.com/photo-1652121650307-57ad2716432c?auto=format&fit=crop&w=2400&q=85";
-const COURT_IMG = "https://images.unsplash.com/photo-1723438095835-220f5a82bed4?auto=format&fit=crop&w=2000&q=85";
-const GALLERY_IMG = "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1800&q=85";
+const ABOUT_IMG = facadeAsset.url;
+const LANDSCAPE_IMG = landscapeAsset.url;
+const COURT_IMG = canalAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -17,6 +23,10 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Agriturismo La Corte di Muggiano · Milano" },
       { name: "description", content: "Agriturismo La Corte di Muggiano: soggiorno tranquillo nel quartiere Baggio di Milano, a pochi km da San Siro, CityLife e Fiera Milano City. Camere climatizzate, Wi-Fi gratuito, giardino e parcheggio privato." },
+      { property: "og:title", content: "Agriturismo La Corte di Muggiano · Milano" },
+      { property: "og:description", content: "Ospitalità in campagna a Muggiano, Milano: camere, giardino e prodotti della nostra azienda agricola." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });
@@ -157,8 +167,10 @@ function Index() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {PRODUCTS.slice(0, 4).map((p) => (
               <Link key={p.id} to="/shop" className="group">
-                <div className="aspect-[3/4] overflow-hidden rounded-sm bg-cream/5">
-                  <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+                <div className="aspect-[3/4] overflow-hidden rounded-sm bg-cream/5 flex items-center justify-center">
+                  <div className="w-[76%] aspect-square rounded-full border border-gold/50 p-2">
+                    <img src={p.image} alt={`Scorcio dell'azienda agricola per ${p.name}`} className="w-full h-full rounded-full object-cover group-hover:scale-105 transition duration-700" />
+                  </div>
                 </div>
                 <p className="mt-3 text-xs uppercase tracking-wider text-gold">{p.category}</p>
                 <p className="font-serif text-lg leading-tight">{p.name}</p>
@@ -199,7 +211,7 @@ function Index() {
             <h2 className="font-serif text-3xl md:text-4xl text-wood-dark mt-3">La vita in agriturismo</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-3">
-            {[ABOUT_IMG, GALLERY_IMG, COURT_IMG, LANDSCAPE_IMG, ROOMS[0].image, PRODUCTS[0].image].map((src, i) => (
+            {[ABOUT_IMG, shopfrontAsset.url, cattleAsset.url, fieldAsset.url, poppiesAsset.url, LANDSCAPE_IMG].map((src, i) => (
               <a key={i} href="#" className="aspect-square overflow-hidden group">
                 <img src={src} className="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Momenti di vita nella corte" />
               </a>
