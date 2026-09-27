@@ -10,10 +10,9 @@ import cattleAsset from "@/assets/farm/lacorte-04.jpg.asset.json";
 import canalAsset from "@/assets/farm/lacorte-05.jpg.asset.json";
 import shopfrontAsset from "@/assets/farm/lacorte-07.jpg.asset.json";
 import poppiesAsset from "@/assets/farm/lacorte-08.jpg.asset.json";
-import facadeAsset from "@/assets/farm/lacorte-09.jpg.asset.json";
 import landscapeAsset from "@/assets/farm/lacorte-10.jpg.asset.json";
 const HERO_IMG = heroAsset.url;
-const ABOUT_IMG = facadeAsset.url;
+const ABOUT_IMG = landscapeAsset.url;
 const LANDSCAPE_IMG = landscapeAsset.url;
 const COURT_IMG = canalAsset.url;
 
@@ -89,7 +88,7 @@ function Index() {
             </div>
           </div>
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm luxury-shadow">
-            <img src={ABOUT_IMG} alt="La corte lombarda dell'Azienda Agricola La Corte a Muggiano" className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]" />
+            <img src={ABOUT_IMG} alt="Paesaggio dei campi intorno a Muggiano al tramonto" className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]" />
             <div className="absolute -bottom-px -right-px bg-cream py-4 px-6 font-serif italic text-wood-dark border-l border-t border-sand">&laquo; La corte di famiglia. Casa vostra. &raquo;</div>
           </div>
         </div>
@@ -169,7 +168,7 @@ function Index() {
               <Link key={p.id} to="/shop" className="group">
                 <div className="aspect-[3/4] overflow-hidden rounded-sm bg-cream/5 flex items-center justify-center">
                   <div className="w-[76%] aspect-square rounded-full border border-gold/50 p-2">
-                    <img src={p.image} alt={`Scorcio dell'azienda agricola per ${p.name}`} className="w-full h-full rounded-full object-cover group-hover:scale-105 transition duration-700" />
+                     <img src={p.image} alt={`Immagine illustrativa di ${p.name}`} loading="lazy" width={1024} height={1024} className="w-full h-full rounded-full object-cover group-hover:scale-105 transition duration-700" />
                   </div>
                 </div>
                 <p className="mt-3 text-xs uppercase tracking-wider text-gold">{p.category}</p>

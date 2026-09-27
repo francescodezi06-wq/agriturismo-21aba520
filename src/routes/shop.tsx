@@ -84,7 +84,7 @@ function ShopPage() {
               <div key={p.id} className="group bg-white border border-sand/60 rounded-sm overflow-hidden flex flex-col">
                 <div className="aspect-square relative bg-sand/20 flex items-center justify-center overflow-hidden">
                   <div className="w-[68%] aspect-square rounded-full border border-olive/40 p-2 md:p-3 shadow-sm">
-                    <img src={p.image} alt={`Scorcio dell'azienda agricola per ${p.name}`} className="w-full h-full rounded-full object-cover group-hover:scale-105 transition duration-700" />
+                     <img src={p.image} alt={`Immagine illustrativa di ${p.name}`} loading="lazy" width={1024} height={1024} className="w-full h-full rounded-full object-cover group-hover:scale-105 transition duration-700" />
                   </div>
                   <Badge className="absolute top-3 left-3 bg-terracotta text-cream">Prodotto dell'azienda</Badge>
                 </div>
