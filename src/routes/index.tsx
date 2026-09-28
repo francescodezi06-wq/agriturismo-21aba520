@@ -12,8 +12,10 @@ import shopfrontAsset from "@/assets/farm/lacorte-07.jpg.asset.json";
 import poppiesAsset from "@/assets/farm/lacorte-08.jpg.asset.json";
 import landscapeAsset from "@/assets/farm/lacorte-10.jpg.asset.json";
 import facadeAsset from "@/assets/farm/lacorte-09.jpg.asset.json";
+import sunsetCanalAsset from "@/assets/farm/lacorte-tramonto-canal.jpg.asset.json";
 const HERO_IMG = heroAsset.url;
 const ABOUT_IMG = facadeAsset.url;
+const ABOUT_SUNSET_IMG = sunsetCanalAsset.url;
 const LANDSCAPE_IMG = landscapeAsset.url;
 const COURT_IMG = canalAsset.url;
 
