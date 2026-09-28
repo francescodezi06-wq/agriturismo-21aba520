@@ -17,24 +17,13 @@ import seasonalProduce from "@/assets/products/seasonal-produce.jpg";
 // Contenuti del sito Agriturismo La Corte di Muggiano — Milano.
 const ROOM_AMENITIES = [
   "Balcone",
-  "Aria condizionata",
-  "Ingresso indipendente",
-  "TV a schermo piatto",
-  "Frigorifero",
-  "Bollitore elettrico",
   "Armadio/guardaroba",
-  "Riscaldamento",
-  "Zanzariera",
-  "Pavimento in marmo/piastrelle",
-  "Aria condizionata indipendente",
-  "Accessibile solo tramite scale",
   "Vietato fumare",
 ];
 
 const BATHROOM_AMENITIES = [
   "Doccia",
   "Bidet",
-  "Prodotti da bagno in omaggio",
   "Asciugamani",
   "Asciugacapelli",
   "Carta igienica",
