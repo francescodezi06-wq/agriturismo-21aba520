@@ -12,8 +12,10 @@ import shopfrontAsset from "@/assets/farm/lacorte-07.jpg.asset.json";
 import poppiesAsset from "@/assets/farm/lacorte-08.jpg.asset.json";
 import landscapeAsset from "@/assets/farm/lacorte-10.jpg.asset.json";
 import facadeAsset from "@/assets/farm/lacorte-09.jpg.asset.json";
+import sunsetCanalAsset from "@/assets/farm/lacorte-tramonto-canal.jpg.asset.json";
 const HERO_IMG = heroAsset.url;
 const ABOUT_IMG = facadeAsset.url;
+const ABOUT_SUNSET_IMG = sunsetCanalAsset.url;
 const LANDSCAPE_IMG = landscapeAsset.url;
 const COURT_IMG = canalAsset.url;
 
@@ -89,7 +91,7 @@ function Index() {
             </div>
           </div>
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm luxury-shadow">
-            <img src={ABOUT_IMG} alt="La facciata storica della cascina — Agriturismo La Corte di Muggiano" className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]" />
+            <img src={ABOUT_SUNSET_IMG} alt="Il canale con i pioppi al tramonto vicino alla cascina — Agriturismo La Corte di Muggiano" className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]" />
             <div className="absolute -bottom-px -right-px bg-cream py-4 px-6 font-serif italic text-wood-dark border-l border-t border-sand">&laquo; La corte di famiglia. Casa vostra. &raquo;</div>
           </div>
         </div>
