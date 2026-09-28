@@ -91,7 +91,7 @@ function Index() {
             </div>
           </div>
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm luxury-shadow">
-            <img src={ABOUT_IMG} alt="La facciata storica della cascina — Agriturismo La Corte di Muggiano" className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]" />
+            <img src={ABOUT_SUNSET_IMG} alt="Il canale con i pioppi al tramonto vicino alla cascina — Agriturismo La Corte di Muggiano" className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]" />
             <div className="absolute -bottom-px -right-px bg-cream py-4 px-6 font-serif italic text-wood-dark border-l border-t border-sand">&laquo; La corte di famiglia. Casa vostra. &raquo;</div>
           </div>
         </div>
