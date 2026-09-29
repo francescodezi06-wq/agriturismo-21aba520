@@ -50,8 +50,6 @@ export const ROOMS = [
     tagline: "Luminosa e raffinata",
     description:
       "Una camera matrimoniale ampia e luminosa, impreziosita da una parete color giallo caldo, letto in ferro battuto e mobili d'epoca. Le grandi finestre lasciano entrare la luce naturale, mentre il bagno privato con doccia riprende i toni delicati della stanza.",
-    pricePerNight: 120,
-    capacity: 2,
     size: 10,
     bed: "1 letto matrimoniale",
     image: cameraLuna.url,
@@ -65,8 +63,6 @@ export const ROOMS = [
     tagline: "Romantica e raccolta",
     description:
       "Una camera matrimoniale dal carattere romantico, con parete color prugna, tessili nelle sfumature del rosso e un delicato letto in ferro bianco. L'ambiente raccolto e curato è accompagnato da un bagno privato con ampia doccia.",
-    pricePerNight: 145,
-    capacity: 2,
     size: 6,
     bed: "1 letto matrimoniale",
     image: cameraStella.url,
@@ -80,8 +76,6 @@ export const ROOMS = [
     tagline: "Avvolgente e rilassante",
     description:
       "Una camera matrimoniale dai toni caldi dell'arancio, ispirati alla luce del tramonto. Il letto in ferro battuto, le tende leggere e la luce naturale rendono l'ambiente accogliente e rilassante; il bagno privato con doccia completa il soggiorno.",
-    pricePerNight: 110,
-    capacity: 2,
     size: 18,
     bed: "1 letto matrimoniale",
     image: cameraTramonto.url,
