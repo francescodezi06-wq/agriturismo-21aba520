@@ -171,12 +171,11 @@ function Index() {
               <Link key={p.id} to="/shop" className="group">
                 <div className="aspect-[3/4] overflow-hidden rounded-sm bg-cream/5 flex items-center justify-center">
                   <div className="w-[76%] aspect-square rounded-full border border-gold/50 p-2">
-                     <img src={p.image} alt={`Immagine illustrativa di ${p.name}`} loading="lazy" width={1024} height={1024} className="w-full h-full rounded-full object-cover group-hover:scale-105 transition duration-700" />
+                     <img src={p.image} alt="Cassetta di prodotti a km 0 dell'azienda agricola" loading="lazy" width={1024} height={1024} className="w-full h-full rounded-full object-cover group-hover:scale-105 transition duration-700" />
                   </div>
                 </div>
                 <p className="mt-3 text-xs uppercase tracking-wider text-gold">{p.category}</p>
-                <p className="font-serif text-lg leading-tight">{p.name}</p>
-                <p className="text-sm text-cream/70">Disponibile in bottega</p>
+                <p className="text-sm text-cream/70">Km 0 · Disponibile in bottega</p>
               </Link>
             ))}
           </div>
