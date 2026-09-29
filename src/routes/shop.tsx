@@ -93,6 +93,19 @@ function ShopPage() {
           </div>
         </div>
       </section>
+
+      <section className="py-20 bg-wood-dark text-cream">
+        <div className="container flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-gold">Vieni a trovarci</p>
+            <h2 className="font-serif text-3xl md:text-4xl mt-3">Le cassette sono in negozio</h2>
+            <p className="mt-4 text-cream/80 leading-relaxed">Tutti i prodotti della nostra azienda sono disponibili in bottega, adesso possono essere ritirati direttamente in agriturismo. Passa a trovarci: scoprirai la corte, la carne del nostro allevamento e i prodotti di stagione.</p>
+          </div>
+          <a href="https://www.openstreetmap.org/?mlat=45.4774&mlon=9.1006#map=16/45.4774/9.1006" target="_blank" rel="noopener noreferrer" className="shrink-0">
+            <Button size="lg" className="bg-gold hover:bg-gold-dark text-wood-dark tracking-wider"><MapPin className="w-4 h-4 mr-2" /> Come raggiungerci</Button>
+          </a>
+        </div>
+      </section>
     </>
   );
 }
