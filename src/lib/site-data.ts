@@ -92,45 +92,31 @@ export const ROOMS = [
 export const BOOKING_URL =
   "https://www.booking.com/hotel/it/agriturismo-la-corte-di-muggiano-citta-metropolitana-di-milano.it.html";
 
+// Titoli e descrizioni delle cassette: da definire — per ora solo foto e categoria.
 export const PRODUCTS = [
   {
     id: "cassetta-bovina-5",
-    name: "Cassetta di Carne Bovina",
     category: "Carne bovina",
-    description:
-      "I nostri tagli di carne bovina allevata in azienda: bistecche, arrosti, macinato e pezzi per bollito. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: beef5,
   },
   {
     id: "cassetta-bovina-10",
-    name: "Cassetta di Carne Bovina · Selezione famiglia",
     category: "Carne bovina",
-    description:
-      "La cassetta pensata per la famiglia, con la carne della nostra azienda: tagli per griglia, arrosto, spezzatino e brodo. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: beef10,
   },
   {
     id: "cassetta-bovina-15",
-    name: "Cassetta di Carne Bovina · Assortita",
     category: "Carne bovina",
-    description:
-      "L'assortimento più completo della nostra carne, dai tagli nobili al bollito, macinato e ossobuco. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: beef15,
   },
   {
     id: "cassetta-azienda",
-    name: "Cassetta Prodotti dell'Azienda Agricola",
     category: "Prodotti misti",
-    description:
-      "Una selezione dei prodotti della corte: uova fresche, miele, conserve di stagione, farine e ortaggi dei nostri campi. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: farmSelection,
   },
   {
     id: "cassetta-stagionale",
-    name: "Cassetta Prodotti Stagionali",
     category: "Stagionale",
-    description:
-      "Ortaggi, frutta ed erbe raccolti al momento nei nostri orti, secondo il ritmo delle stagioni della pianura padana. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: seasonalProduce,
   },
 ];
