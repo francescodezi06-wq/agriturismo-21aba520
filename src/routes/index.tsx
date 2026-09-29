@@ -162,6 +162,7 @@ function Index() {
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-gold">La bottega</p>
               <h2 className="font-serif text-4xl md:text-5xl mt-4">Le cassette della nostra azienda</h2>
+              <p className="mt-3 text-cream/80 text-sm md:text-base max-w-xl">Prodotti a km 0, in vendita solo nella nostra bottega.</p>
             </div>
             <Link to="/shop" className="text-gold uppercase tracking-[0.25em] text-xs hover:text-cream inline-flex items-center gap-2">Visita la bottega <ArrowRight className="w-3 h-3" /></Link>
           </div>
