@@ -37,8 +37,6 @@ export const ROOMS = [
     tagline: "Calda e accogliente",
     description:
       "Una camera matrimoniale vivace e accogliente, caratterizzata dalle tonalità del rosso e da un elegante letto in ferro battuto. Gli arredi in legno e il lampadario classico creano un'atmosfera intima, completata da un bagno privato coordinato con doccia.",
-    pricePerNight: 95,
-    capacity: 2,
     size: 15,
     bed: "1 letto matrimoniale",
     image: cameraAurora.url,
