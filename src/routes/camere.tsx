@@ -142,11 +142,7 @@ function CamerePage() {
                 <ul className="flex flex-wrap gap-2">
                   {r.bathroom.map((a) => <li key={a} className="text-xs px-3 py-1 border border-sand rounded-full text-wood-dark/80 bg-sand/20">{a}</li>)}
                 </ul>
-                <div className="flex items-end justify-between mt-8 pt-6 border-t border-sand">
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground">A partire da</p>
-                    <p className="font-serif text-3xl text-wood-dark">€ {r.pricePerNight}<span className="text-sm text-muted-foreground font-sans"> /notte</span></p>
-                  </div>
+                <div className="mt-8 pt-6 border-t border-sand flex justify-end">
                   <Button onClick={() => setActive(r)} className="bg-olive hover:bg-olive-dark text-cream tracking-wider">Prenota <ArrowRight className="w-4 h-4 ml-2" /></Button>
                 </div>
               </div>

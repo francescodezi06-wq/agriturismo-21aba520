@@ -133,7 +133,6 @@ function Index() {
                     <p className="text-xs uppercase tracking-[0.25em] text-gold">{r.tagline}</p>
                     <h3 className="font-serif text-3xl mt-1">{r.name}</h3>
                     <div className="flex items-center justify-between mt-3">
-                      <span className="text-sm">da € {r.pricePerNight}/notte</span>
                       <span className="flex items-center gap-1 text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition">Scopri <ArrowRight className="w-3 h-3" /></span>
                     </div>
                   </div>
@@ -176,7 +175,7 @@ function Index() {
                 </div>
                 <p className="mt-3 text-xs uppercase tracking-wider text-gold">{p.category}</p>
                 <p className="font-serif text-lg leading-tight">{p.name}</p>
-                <p className="text-sm text-cream/70">€ {p.price.toFixed(2)}</p>
+                <p className="text-sm text-cream/70">Disponibile in bottega</p>
               </Link>
             ))}
           </div>

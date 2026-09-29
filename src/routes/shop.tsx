@@ -3,8 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PRODUCTS, PRODUCT_CATEGORIES } from "@/lib/site-data";
-import { ShoppingBag, ShieldCheck, Leaf } from "lucide-react";
-import { toast } from "sonner";
+import { ShoppingBag, ShieldCheck, Leaf, MapPin } from "lucide-react";
 import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 import meatCounter from "@/assets/farm/lacorte-01.jpg.asset.json";
 import meatCuts from "@/assets/farm/lacorte-02.jpg.asset.json";
@@ -25,11 +24,8 @@ export const Route = createFileRoute("/shop")({
 
 function ShopPage() {
   const [cat, setCat] = useState("Tutti");
-  const [sort, setSort] = useState("default");
 
   let list = PRODUCTS.filter((p) => cat === "Tutti" || p.category === cat);
-  if (sort === "price-asc") list = [...list].sort((a, b) => a.price - b.price);
-  if (sort === "price-desc") list = [...list].sort((a, b) => b.price - a.price);
 
   return (
     <>
@@ -72,11 +68,6 @@ function ShopPage() {
                 <button key={c} onClick={() => setCat(c)} className={`px-4 py-2 text-xs uppercase tracking-wider border rounded-sm transition ${cat === c ? "bg-olive text-cream border-olive" : "bg-white border-sand text-wood-dark hover:border-olive"}`}>{c}</button>
               ))}
             </div>
-            <select value={sort} onChange={(e) => setSort(e.target.value)} className="px-4 py-2 text-sm border border-sand bg-white rounded-sm">
-              <option value="default">Ordinamento</option>
-              <option value="price-asc">Prezzo crescente</option>
-              <option value="price-desc">Prezzo decrescente</option>
-            </select>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -92,14 +83,27 @@ function ShopPage() {
                   <p className="text-[10px] uppercase tracking-[0.25em] text-accent">{p.category}</p>
                   <h3 className="font-serif text-xl text-wood-dark mt-1 leading-tight">{p.name}</h3>
                   <p className="text-xs text-muted-foreground mt-2 line-clamp-2 flex-1">{p.description}</p>
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="font-serif text-2xl text-olive">€ {p.price.toFixed(2)}</span>
-                    <Button size="sm" onClick={() => toast.success(`${p.name} aggiunto al carrello`)} className="bg-wood-dark hover:bg-wood text-cream"><ShoppingBag className="w-4 h-4 mr-1" /> Aggiungi al carrello</Button>
+                  <div className="mt-4 pt-4 border-t border-sand/60">
+                    <p className="text-xs uppercase tracking-[0.2em] text-olive flex items-center gap-1"><ShoppingBag className="w-3.5 h-3.5" /> Disponibile in negozio</p>
+                    <p className="text-xs text-muted-foreground mt-1">Vieni a visitare la bottega in agriturismo.</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-wood-dark text-cream">
+        <div className="container flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-gold">Vieni a trovarci</p>
+            <h2 className="font-serif text-3xl md:text-4xl mt-3">Le cassette sono in negozio</h2>
+            <p className="mt-4 text-cream/80 leading-relaxed">Tutti i prodotti della nostra azienda sono disponibili in bottega, adesso possono essere ritirati direttamente in agriturismo. Passa a trovarci: scoprirai la corte, la carne del nostro allevamento e i prodotti di stagione.</p>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Agriturismo+La+Corte+di+Muggiano+Via+Antonio+Mosca+195+Milano" target="_blank" rel="noopener noreferrer" className="shrink-0">
+            <Button size="lg" className="bg-gold hover:bg-gold-dark text-wood-dark tracking-wider"><MapPin className="w-4 h-4 mr-2" /> Come raggiungerci</Button>
+          </a>
         </div>
       </section>
     </>

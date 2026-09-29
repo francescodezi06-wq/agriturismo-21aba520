@@ -37,7 +37,6 @@ export const ROOMS = [
     tagline: "Calda e accogliente",
     description:
       "Una camera matrimoniale vivace e accogliente, caratterizzata dalle tonalità del rosso e da un elegante letto in ferro battuto. Gli arredi in legno e il lampadario classico creano un'atmosfera intima, completata da un bagno privato coordinato con doccia.",
-    pricePerNight: 95,
     capacity: 2,
     size: 15,
     bed: "1 letto matrimoniale",
@@ -52,7 +51,6 @@ export const ROOMS = [
     tagline: "Luminosa e raffinata",
     description:
       "Una camera matrimoniale ampia e luminosa, impreziosita da una parete color giallo caldo, letto in ferro battuto e mobili d'epoca. Le grandi finestre lasciano entrare la luce naturale, mentre il bagno privato con doccia riprende i toni delicati della stanza.",
-    pricePerNight: 120,
     capacity: 2,
     size: 10,
     bed: "1 letto matrimoniale",
@@ -67,7 +65,6 @@ export const ROOMS = [
     tagline: "Romantica e raccolta",
     description:
       "Una camera matrimoniale dal carattere romantico, con parete color prugna, tessili nelle sfumature del rosso e un delicato letto in ferro bianco. L'ambiente raccolto e curato è accompagnato da un bagno privato con ampia doccia.",
-    pricePerNight: 145,
     capacity: 2,
     size: 6,
     bed: "1 letto matrimoniale",
@@ -82,7 +79,6 @@ export const ROOMS = [
     tagline: "Avvolgente e rilassante",
     description:
       "Una camera matrimoniale dai toni caldi dell'arancio, ispirati alla luce del tramonto. Il letto in ferro battuto, le tende leggere e la luce naturale rendono l'ambiente accogliente e rilassante; il bagno privato con doccia completa il soggiorno.",
-    pricePerNight: 110,
     capacity: 2,
     size: 18,
     bed: "1 letto matrimoniale",
@@ -99,47 +95,42 @@ export const BOOKING_URL =
 export const PRODUCTS = [
   {
     id: "cassetta-bovina-5",
-    name: "Cassetta di Carne Bovina · 5 kg",
+    name: "Cassetta di Carne Bovina",
     category: "Carne bovina",
-    price: 89,
     description:
-      "Selezione di tagli misti di carne bovina allevata nella nostra azienda: bistecche, arrosti, macinato e pezzi per bollito. Confezionata sottovuoto.",
+      "I nostri tagli di carne bovina allevata in azienda: bistecche, arrosti, macinato e pezzi per bollito. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: beef5,
   },
   {
     id: "cassetta-bovina-10",
-    name: "Cassetta di Carne Bovina · 10 kg",
+    name: "Cassetta di Carne Bovina · Selezione famiglia",
     category: "Carne bovina",
-    price: 169,
     description:
-      "Cassetta famiglia con 10 kg di carne bovina della nostra azienda: tagli per griglia, arrosto, spezzatino, macinato e brodo. Sottovuoto e pronta al congelamento.",
+      "La cassetta pensata per la famiglia, con la carne della nostra azienda: tagli per griglia, arrosto, spezzatino e brodo. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: beef10,
   },
   {
     id: "cassetta-bovina-15",
-    name: "Cassetta di Carne Bovina · 15 kg",
+    name: "Cassetta di Carne Bovina · Assortita",
     category: "Carne bovina",
-    price: 239,
     description:
-      "La cassetta più completa: 15 kg di carne bovina dell'azienda, dai tagli nobili al bollito, macinato e ossobuco. Perfetta per riempire il freezer di casa.",
+      "L'assortimento più completo della nostra carne, dai tagli nobili al bollito, macinato e ossobuco. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: beef15,
   },
   {
     id: "cassetta-azienda",
     name: "Cassetta Prodotti dell'Azienda Agricola",
     category: "Prodotti misti",
-    price: 55,
     description:
-      "Una selezione dei prodotti della corte: uova fresche, miele, conserve di stagione, farine e ortaggi coltivati nei nostri campi.",
+      "Una selezione dei prodotti della corte: uova fresche, miele, conserve di stagione, farine e ortaggi dei nostri campi. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: farmSelection,
   },
   {
     id: "cassetta-stagionale",
     name: "Cassetta Prodotti Stagionali",
     category: "Stagionale",
-    price: 35,
     description:
-      "Ortaggi, frutta ed erbe raccolti al momento nei nostri orti, secondo il ritmo delle stagioni della pianura padana.",
+      "Ortaggi, frutta ed erbe raccolti al momento nei nostri orti, secondo il ritmo delle stagioni della pianura padana. Disponibile in bottega — vieni a trovarci in agriturismo.",
     image: seasonalProduce,
   },
 ];
