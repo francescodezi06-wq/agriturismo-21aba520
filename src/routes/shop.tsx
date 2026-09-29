@@ -24,11 +24,8 @@ export const Route = createFileRoute("/shop")({
 
 function ShopPage() {
   const [cat, setCat] = useState("Tutti");
-  const [sort, setSort] = useState("default");
 
   let list = PRODUCTS.filter((p) => cat === "Tutti" || p.category === cat);
-  if (sort === "price-asc") list = [...list].sort((a, b) => a.price - b.price);
-  if (sort === "price-desc") list = [...list].sort((a, b) => b.price - a.price);
 
   return (
     <>
@@ -71,11 +68,6 @@ function ShopPage() {
                 <button key={c} onClick={() => setCat(c)} className={`px-4 py-2 text-xs uppercase tracking-wider border rounded-sm transition ${cat === c ? "bg-olive text-cream border-olive" : "bg-white border-sand text-wood-dark hover:border-olive"}`}>{c}</button>
               ))}
             </div>
-            <select value={sort} onChange={(e) => setSort(e.target.value)} className="px-4 py-2 text-sm border border-sand bg-white rounded-sm">
-              <option value="default">Ordinamento</option>
-              <option value="price-asc">Prezzo crescente</option>
-              <option value="price-desc">Prezzo decrescente</option>
-            </select>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -91,9 +83,9 @@ function ShopPage() {
                   <p className="text-[10px] uppercase tracking-[0.25em] text-accent">{p.category}</p>
                   <h3 className="font-serif text-xl text-wood-dark mt-1 leading-tight">{p.name}</h3>
                   <p className="text-xs text-muted-foreground mt-2 line-clamp-2 flex-1">{p.description}</p>
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="font-serif text-2xl text-olive">€ {p.price.toFixed(2)}</span>
-                    <Button size="sm" onClick={() => toast.success(`${p.name} aggiunto al carrello`)} className="bg-wood-dark hover:bg-wood text-cream"><ShoppingBag className="w-4 h-4 mr-1" /> Aggiungi al carrello</Button>
+                  <div className="mt-4 pt-4 border-t border-sand/60">
+                    <p className="text-xs uppercase tracking-[0.2em] text-olive flex items-center gap-1"><ShoppingBag className="w-3.5 h-3.5" /> Disponibile in negozio</p>
+                    <p className="text-xs text-muted-foreground mt-1">Vieni a visitare la bottega in agriturismo.</p>
                   </div>
                 </div>
               </div>
