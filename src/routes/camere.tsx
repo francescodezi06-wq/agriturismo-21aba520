@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ROOMS, BOOKING_URL } from "@/lib/site-data";
-import { BedDouble, Users, Sparkles, ArrowRight, ExternalLink } from "lucide-react";
+import { BedDouble, Users, ArrowRight, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 import { createBooking } from "@/lib/bookings.functions";
