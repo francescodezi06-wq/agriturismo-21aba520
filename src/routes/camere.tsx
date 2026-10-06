@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ROOMS, BOOKING_URL } from "@/lib/site-data";
-import { BedDouble, Users, Sparkles, ArrowRight, ExternalLink } from "lucide-react";
+import { BedDouble, Users, ArrowRight, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 import { createBooking } from "@/lib/bookings.functions";
@@ -130,10 +130,9 @@ function CamerePage() {
                 <p className="text-xs uppercase tracking-[0.3em] text-accent">{r.tagline}</p>
                 <h2 className="font-serif text-4xl md:text-5xl text-wood-dark mt-3">{r.name}</h2>
                 <p className="text-muted-foreground mt-4 leading-relaxed">{r.description}</p>
-                <div className="grid grid-cols-3 gap-4 mt-6 text-sm">
-                  <div><BedDouble className="w-4 h-4 text-olive mb-1" /><div>{r.bed}</div></div>
+                <div className="grid grid-cols-2 gap-4 mt-6 text-sm">
+                  <div><BedDouble className="w-4 h-4 text-olive mb-1" /><div className="whitespace-pre-line">{r.bed}</div></div>
                   <div><Users className="w-4 h-4 text-olive mb-1" /><div>Fino a {r.capacity} ospiti</div></div>
-                  <div><Sparkles className="w-4 h-4 text-olive mb-1" /><div>{r.size} m²</div></div>
                 </div>
                 <ul className="flex flex-wrap gap-2 mt-6">
                   {r.amenities.map((a) => <li key={a} className="text-xs px-3 py-1 border border-sand rounded-full text-wood-dark/80">{a}</li>)}

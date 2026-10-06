@@ -30,10 +30,9 @@ export default function SiteFooter() {
           <h4 className="font-serif text-lg mb-4 text-gold">Contatti</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 text-gold shrink-0" /> Via Antonio Mosca, 195<br />20152 Milano (MI)</li>
-            <li className="flex gap-2"><Phone className="w-4 h-4 mt-0.5 text-gold shrink-0" /> <a href="tel:+39024564740" className="hover:text-gold">02 4564740</a><span className="text-cream/50"> (tel./fax)</span></li>
             <li className="flex gap-2"><Phone className="w-4 h-4 mt-0.5 text-gold shrink-0" /> <a href="tel:+393347885127" className="hover:text-gold">334 7885127</a><span className="text-cream/50"> · Miriam</span></li>
             <li className="flex gap-2"><Phone className="w-4 h-4 mt-0.5 text-gold shrink-0" /> <a href="tel:+393299863157" className="hover:text-gold">329 9863157</a><span className="text-cream/50"> · Simona</span></li>
-            <li className="flex gap-2"><Mail className="w-4 h-4 mt-0.5 text-gold shrink-0" /> <a href="mailto:info@agriturismolacortemuggiano.it" className="hover:text-gold break-all">info@agriturismolacortemuggiano.it</a></li>
+            <li className="flex gap-2"><Mail className="w-4 h-4 mt-0.5 text-gold shrink-0" /> <a href="mailto:lacortemuggiano@libero.it" className="hover:text-gold break-all">lacortemuggiano@libero.it</a></li>
           </ul>
           <p className="mt-4 text-xs text-cream/50">C.F./P.IVA 09897430964</p>
         </div>
