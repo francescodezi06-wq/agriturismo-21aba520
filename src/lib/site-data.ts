@@ -83,7 +83,7 @@ export const ROOMS = [
     bed: "1 letto matrimoniale",
     image: cameraTramonto.url,
     images: [cameraTramonto.url, cameraTramontoBagno.url],
-    amenities: ROOM_AMENITIES,
+    amenities: ["Balcone", ...ROOM_AMENITIES],
     bathroom: BATHROOM_AMENITIES,
   },
 ];
