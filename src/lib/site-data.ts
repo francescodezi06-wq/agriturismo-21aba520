@@ -64,9 +64,9 @@ export const ROOMS = [
     tagline: "Romantica e raccolta",
     description:
       "Una camera matrimoniale dal carattere romantico, con parete color prugna, tessili nelle sfumature del rosso e un delicato letto in ferro bianco. L'ambiente raccolto e curato è accompagnato da un bagno privato con ampia doccia.",
-    capacity: 2,
+    capacity: 3,
     size: 6,
-    bed: "1 letto matrimoniale",
+    bed: "1 letto matrimoniale\n1 letto singolo\n",
     image: cameraStella.url,
     images: [cameraStella.url, cameraStellaBagno.url],
     amenities: ROOM_AMENITIES,
