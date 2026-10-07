@@ -16,7 +16,6 @@ import seasonalProduce from "@/assets/products/seasonal-produce.jpg";
 
 // Contenuti del sito Agriturismo La Corte di Muggiano — Milano.
 const ROOM_AMENITIES = [
-  "Balcone",
   "Armadio/guardaroba",
   "Vietato fumare",
 ];
@@ -56,7 +55,7 @@ export const ROOMS = [
     bed: "1 letto matrimoniale\n1 letto singolo",
     image: cameraLuna.url,
     images: [cameraLuna.url, cameraLunaSeconda.url, cameraLunaBagno.url],
-    amenities: ROOM_AMENITIES.filter((a) => a !== "Balcone"),
+    amenities: ROOM_AMENITIES,
     bathroom: BATHROOM_AMENITIES,
   },
   {
@@ -70,7 +69,7 @@ export const ROOMS = [
     bed: "1 letto matrimoniale",
     image: cameraStella.url,
     images: [cameraStella.url, cameraStellaBagno.url],
-    amenities: ROOM_AMENITIES.filter((a) => a !== "Balcone"),
+    amenities: ROOM_AMENITIES,
     bathroom: BATHROOM_AMENITIES,
   },
   {
@@ -84,7 +83,7 @@ export const ROOMS = [
     bed: "1 letto matrimoniale",
     image: cameraTramonto.url,
     images: [cameraTramonto.url, cameraTramontoBagno.url],
-    amenities: ROOM_AMENITIES.filter((a) => a !== "Balcone"),
+    amenities: ROOM_AMENITIES,
     bathroom: BATHROOM_AMENITIES,
   },
 ];
