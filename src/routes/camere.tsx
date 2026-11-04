@@ -9,6 +9,8 @@ import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 
 type Room = (typeof ROOMS)[number];
 
+const OWNER_EMAIL = "Francesco.dezi06@gmail.com";
+
 export const Route = createFileRoute("/camere")({
   component: CamerePage,
   head: () => ({
@@ -57,19 +59,30 @@ function CamerePage() {
 
     setSubmitting(true);
     try {
-      const res = await fetch("/prenota.php", {
+      const res = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          firstName, lastName,
-          email: email.trim(), phone: phone.trim(),
-          roomName: active.name,
-          checkIn, checkOut, guests,
-          notes: notes.trim() || null,
-          website: "",
+          _subject: `Nuova richiesta di prenotazione · ${active.name} · ${firstName} ${lastName}`,
+          _template: "table",
+          _captcha: "false",
+          _honey: "",
+          _autoresponse: `Grazie ${firstName}! Abbiamo ricevuto la tua richiesta di prenotazione (${active.name}, dal ${checkIn} al ${checkOut}, ${guests} ospiti) presso l'Agriturismo La Corte di Muggiano. Ti risponderemo entro 24 ore per confermare la disponibilità.`,
+          Camera: active.name,
+          "Check-in": checkIn,
+          "Check-out": checkOut,
+          Ospiti: guests,
+          Nome: `${firstName} ${lastName}`,
+          email: email.trim(),
+          Telefono: phone.trim(),
+          Note: notes.trim() || "—",
         }),
       });
-      const result: { ok: boolean; message?: string } = await res.json();
+      const data = await res.json().catch(() => ({}));
+      const result: { ok: boolean; message?: string } = {
+        ok: res.ok && (data.success === true || data.success === "true"),
+        message: data.message,
+      };
       if (result.ok) {
         setSent({ firstName, email: email.trim() });
         resetForm();
