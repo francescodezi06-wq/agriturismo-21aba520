@@ -9,7 +9,27 @@ import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 
 type Room = (typeof ROOMS)[number];
 
-const OWNER_EMAIL = "testgoat111@gmail.com"; // TEST: rimettere Francesco.dezi06@gmail.com in produzione
+// EmailJS (chiavi pubbliche, pensate per stare nel sito)
+const EMAILJS = {
+  serviceId: "service_09itr46",
+  publicKey: "jBLrnnYK_d-fD21nG",
+  ownerTemplate: "template_p30r0rb",  // notifica al proprietario
+  clientTemplate: "template_dpx6bak", // conferma al cliente
+};
+
+async function sendEmailJS(templateId: string, params: Record<string, string>) {
+  const r = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      service_id: EMAILJS.serviceId,
+      template_id: templateId,
+      user_id: EMAILJS.publicKey,
+      template_params: params,
+    }),
+  });
+  if (!r.ok) throw new Error(`EmailJS ${r.status}: ${await r.text()}`);
+}
 
 export const Route = createFileRoute("/camere")({
   component: CamerePage,
@@ -59,29 +79,23 @@ function CamerePage() {
 
     setSubmitting(true);
     try {
-      const res = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          _subject: `Nuova richiesta di prenotazione · ${active.name} · ${firstName} ${lastName}`,
-          _template: "table",
-          _captcha: "false",
-          _honey: "",
-          _autoresponse: `Grazie ${firstName}! Abbiamo ricevuto la tua richiesta di prenotazione (${active.name}, dal ${checkIn} al ${checkOut}, ${guests} ospiti) presso l'Agriturismo La Corte di Muggiano. Ti risponderemo entro 24 ore per confermare la disponibilità.`,
-          Camera: active.name,
-          "Check-in": checkIn,
-          "Check-out": checkOut,
-          Ospiti: guests,
-          Nome: `${firstName} ${lastName}`,
-          email: email.trim(),
-          Telefono: phone.trim(),
-          Note: notes.trim() || "—",
-        }),
-      });
-      const data = await res.json().catch(() => ({}));
+      const full = `${firstName} ${lastName}`;
+      const params: Record<string, string> = {
+        camera: active.name, checkin: checkIn, checkout: checkOut, ospiti: String(guests),
+        nome: full, name: full, from_name: full,
+        email: email.trim(), reply_to: email.trim(), to_email: email.trim(),
+        telefono: phone.trim(), note: notes.trim() || "—",
+        message: `Camera: ${active.name}\nCheck-in: ${checkIn}\nCheck-out: ${checkOut}\nOspiti: ${guests}\nTelefono: ${phone.trim()}\nNote: ${notes.trim() || "—"}`,
+      };
+      const [owner, client] = await Promise.allSettled([
+        sendEmailJS(EMAILJS.ownerTemplate, params),
+        sendEmailJS(EMAILJS.clientTemplate, params),
+      ]);
+      if (client.status === "rejected") console.error("Email cliente non inviata", client.reason);
+      if (owner.status === "rejected") console.error("Email proprietario non inviata", owner.reason);
       const result: { ok: boolean; message?: string } = {
-        ok: res.ok && (data.success === true || data.success === "true"),
-        message: data.message,
+        ok: owner.status === "fulfilled",
+        message: "Invio non riuscito, riprova più tardi o contattaci telefonicamente.",
       };
       if (result.ok) {
         setSent({ firstName, email: email.trim() });
