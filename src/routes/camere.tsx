@@ -13,8 +13,8 @@ type Room = (typeof ROOMS)[number];
 const EMAILJS = {
   serviceId: "service_09itr46",
   publicKey: "jBLrnnYK_d-fD21nG",
-  ownerTemplate: "template_p30r0rb",  // notifica al proprietario
-  clientTemplate: "template_dpx6bak", // conferma al cliente
+  ownerTemplate: "template_dpx6bak",  // notifica al proprietario
+  clientTemplate: "template_p30r0rb", // conferma al cliente
 };
 
 async function sendEmailJS(templateId: string, params: Record<string, string>) {
