@@ -9,7 +9,7 @@ import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
 
 type Room = (typeof ROOMS)[number];
 
-const OWNER_EMAIL = "Francesco.dezi06@gmail.com";
+const OWNER_EMAIL = "testgoat111@gmail.com"; // TEST: rimettere Francesco.dezi06@gmail.com in produzione
 
 export const Route = createFileRoute("/camere")({
   component: CamerePage,
