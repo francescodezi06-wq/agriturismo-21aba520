@@ -35,6 +35,7 @@ function CamerePage() {
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState<{ firstName: string; email: string } | null>(null);
   const submitBooking = useServerFn(createBooking);
 
   const resetForm = () => {
@@ -69,7 +70,7 @@ function CamerePage() {
         },
       });
       if (result.ok) {
-        toast.success(`Grazie ${firstName}! Abbiamo ricevuto la tua richiesta di prenotazione. Ti contatteremo a breve su ${email.trim()} per la conferma.`);
+        setSent({ firstName, email: email.trim() });
         resetForm();
       } else {
         toast.error(result.message);
@@ -150,6 +151,21 @@ function CamerePage() {
         </div>
       </section>
 
+      <Dialog open={!!sent} onOpenChange={(v) => !v && setSent(null)}>
+        <DialogContent className="max-w-md bg-cream border-sand text-center">
+          <DialogHeader>
+            <DialogTitle className="font-serif text-3xl text-wood-dark">Richiesta inviata!</DialogTitle>
+          </DialogHeader>
+          {sent && (
+            <div className="space-y-3 mt-2">
+              <p className="text-sm text-wood-dark">Grazie {sent.firstName}, abbiamo ricevuto la tua richiesta di prenotazione. Ti abbiamo inviato una email di conferma a <strong>{sent.email}</strong> (controlla anche lo spam).</p>
+              <p className="text-xs text-muted-foreground">Ti risponderemo entro 24 ore per confermare la disponibilità.</p>
+              <Button onClick={() => setSent(null)} className="bg-olive hover:bg-olive-dark text-cream">Chiudi</Button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
       <Dialog open={!!active} onOpenChange={(v) => !v && setActive(null)}>
         <DialogContent className="max-w-lg bg-cream border-sand max-h-[90vh] overflow-y-auto">
           {active && (
@@ -178,8 +194,9 @@ function CamerePage() {
                   <p className="text-[11px] text-muted-foreground mt-1">Max {active.capacity} ospiti</p>
                 </div>
                 <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Nome e cognome" value={name} onChange={(e) => setName(e.target.value)} />
-                <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Telefono" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <textarea rows={3} maxLength={2000} className="w-full px-3 py-2 border border-sand bg-white rounded-sm text-sm" placeholder="Note o richieste (facoltativo)" value={notes} onChange={(e) => setNotes(e.target.value)} />
                 <Button onClick={submit} disabled={submitting} className="w-full bg-olive hover:bg-olive-dark text-cream disabled:opacity-70">{submitting ? "Invio in corso…" : "Invia richiesta"}</Button>
                 <p className="text-[11px] text-muted-foreground text-center">Ti risponderemo entro 24 ore per confermare la disponibilità.</p>
               </div>

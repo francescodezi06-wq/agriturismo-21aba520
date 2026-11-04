@@ -41,26 +41,11 @@ async function trySendEmails(payload: {
   notes?: string | null;
 }) {
   try {
-    const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
-
-    const adminEmail = process.env.ADMIN_EMAIL || process.env.NOTIFICATION_EMAIL;
-
-    await sendTemplateEmail("booking-confirmation", payload.email, {
-      templateData: payload,
-      idempotencyKey: `booking-confirm-${payload.bookingId}`,
-    }).catch((err: unknown) => console.error("[booking] client email failed", err));
-
-    if (adminEmail) {
-      await sendTemplateEmail("booking-admin-notification", adminEmail, {
-        templateData: payload,
-        idempotencyKey: `booking-admin-${payload.bookingId}`,
-      }).catch((err: unknown) => console.error("[booking] admin email failed", err));
-    } else {
-      console.warn("[booking] ADMIN_EMAIL not configured — admin notification skipped");
-    }
+    const { sendBookingEmails } = await import("@/lib/email-templates/send-email");
+    await sendBookingEmails(payload);
   } catch (err) {
-    // Email templates not scaffolded yet — booking still saved.
-    console.warn("[booking] email helper unavailable", err);
+    // La prenotazione è già salvata: un errore email non deve bloccarla.
+    console.error("[booking] invio email fallito", err);
   }
 }
 
