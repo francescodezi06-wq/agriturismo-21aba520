@@ -1,13 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ROOMS, BOOKING_URL } from "@/lib/site-data";
 import { BedDouble, Users, ArrowRight, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
-import { createBooking } from "@/lib/bookings.functions";
 
 type Room = (typeof ROOMS)[number];
 
@@ -36,7 +34,6 @@ function CamerePage() {
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState<{ firstName: string; email: string } | null>(null);
-  const submitBooking = useServerFn(createBooking);
 
   const resetForm = () => {
     setActive(null);
@@ -60,20 +57,24 @@ function CamerePage() {
 
     setSubmitting(true);
     try {
-      const result = await submitBooking({
-        data: {
+      const res = await fetch("/prenota.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           firstName, lastName,
           email: email.trim(), phone: phone.trim(),
-          roomId: active.id, roomName: active.name,
+          roomName: active.name,
           checkIn, checkOut, guests,
           notes: notes.trim() || null,
-        },
+          website: "",
+        }),
       });
+      const result: { ok: boolean; message?: string } = await res.json();
       if (result.ok) {
         setSent({ firstName, email: email.trim() });
         resetForm();
       } else {
-        toast.error(result.message);
+        toast.error(result.message ?? "Invio non riuscito.");
       }
     } catch (err) {
       console.error(err);
