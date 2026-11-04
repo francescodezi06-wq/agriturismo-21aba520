@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ROOMS, BOOKING_URL } from "@/lib/site-data";
 import { BedDouble, Users, ArrowRight, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import heroAsset from "@/assets/hero-lacorte.jpg.asset.json";
-import { createBooking } from "@/lib/bookings.functions";
 
 type Room = (typeof ROOMS)[number];
+
+const OWNER_EMAIL = "Francesco.dezi06@gmail.com";
 
 export const Route = createFileRoute("/camere")({
   component: CamerePage,
@@ -36,7 +36,6 @@ function CamerePage() {
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState<{ firstName: string; email: string } | null>(null);
-  const submitBooking = useServerFn(createBooking);
 
   const resetForm = () => {
     setActive(null);
@@ -60,20 +59,35 @@ function CamerePage() {
 
     setSubmitting(true);
     try {
-      const result = await submitBooking({
-        data: {
-          firstName, lastName,
-          email: email.trim(), phone: phone.trim(),
-          roomId: active.id, roomName: active.name,
-          checkIn, checkOut, guests,
-          notes: notes.trim() || null,
-        },
+      const res = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Nuova richiesta di prenotazione · ${active.name} · ${firstName} ${lastName}`,
+          _template: "table",
+          _captcha: "false",
+          _honey: "",
+          _autoresponse: `Grazie ${firstName}! Abbiamo ricevuto la tua richiesta di prenotazione (${active.name}, dal ${checkIn} al ${checkOut}, ${guests} ospiti) presso l'Agriturismo La Corte di Muggiano. Ti risponderemo entro 24 ore per confermare la disponibilità.`,
+          Camera: active.name,
+          "Check-in": checkIn,
+          "Check-out": checkOut,
+          Ospiti: guests,
+          Nome: `${firstName} ${lastName}`,
+          email: email.trim(),
+          Telefono: phone.trim(),
+          Note: notes.trim() || "—",
+        }),
       });
+      const data = await res.json().catch(() => ({}));
+      const result: { ok: boolean; message?: string } = {
+        ok: res.ok && (data.success === true || data.success === "true"),
+        message: data.message,
+      };
       if (result.ok) {
         setSent({ firstName, email: email.trim() });
         resetForm();
       } else {
-        toast.error(result.message);
+        toast.error(result.message ?? "Invio non riuscito.");
       }
     } catch (err) {
       console.error(err);
